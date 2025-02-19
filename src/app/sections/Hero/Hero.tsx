@@ -1,22 +1,19 @@
 "use client";
 
 import React from "react";
-import { Box, Typography, Button, Container, Grid, useTheme,  } from "@mui/material";
+import { Box, Typography, Button, Container, Grid, useTheme } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { statics } from "@/app/utils/statics";
 
-
-const Hero: React.FC= () => {
+const Hero: React.FC = () => {
   const theme = useTheme();
-  const Background = theme.palette.success.main
+  const Background = theme.palette.success.main;
   
   return (
     <Box
       sx={{
-        // Fondo verde muy oscuro (primary.main)
         backgroundColor: Background,
-        // Color de texto por defecto en la sección
         color: "info.main", // Texto fosforescente
         py: { xs: 8, md: 12 }, // padding vertical (responsive)
       }}
@@ -26,36 +23,38 @@ const Hero: React.FC= () => {
           {/* Columna de texto (izquierda en pantallas md+) */}
           <Grid item xs={12} md={6}>
             <Typography
-              variant="h3"
+              variant="h2"
               component="h1"
-              gutterBottom
-              sx={{ fontWeight: "bold" }}
+              fontSize={90}
+              sx={{ fontWeight: "bold", mb: 2, zIndex: 1 }}
             >
-              {statics.COMPANY.NAME}
+              {statics.COMPANY.TITLE}
             </Typography>
 
             <Typography
-              variant="subtitle1"
-              gutterBottom
-              sx={{ color: "#FFFFFF" }}
+              variant="h3"
+              fontSize={20}
+              sx={{ color: "#FFFFFF", mb: 4 }}
             >
-             {statics.COMPANY.TEXT}
+              {statics.COMPANY.TEXT}
             </Typography>
+
             <Link href={statics.COMPANY.BUTTON.link} passHref>
-              <Button variant="contained" color="secondary" sx={{ mt: 4 }}>
-               { statics.COMPANY.BUTTON.NAME}
+              <Button variant="contained" color="secondary">
+                {statics.COMPANY.BUTTON.NAME}
               </Button>
             </Link>
           </Grid>
 
           {/* Columna de la imagen (derecha en pantallas md+) */}
-          <Grid item xs={12} md={6} display="flex" justifyContent="center">
+          <Grid item xs={12} md={6}>
             <Image
               src="/assets/hero.png"
               alt="Imagen hero"
               width={600}
               height={600}
               loading="lazy"
+              style={{ width: "100%", height: "auto" }}
             />
           </Grid>
         </Grid>

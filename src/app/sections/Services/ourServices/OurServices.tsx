@@ -10,6 +10,7 @@ import {
 import CardService from "@/app/components/Cards/cardService/CardService";
 import { statics } from "@/app/utils/statics";
 import { content } from "@/app/utils/content";
+import ButtonCub from "@/app/components/Buttons/Cub/buton";
 
 const ServicesSection = () => {
   const theme = useTheme();
@@ -18,6 +19,7 @@ const ServicesSection = () => {
   const isLargeScreen = useMediaQuery(theme.breakpoints.down("xl"));
 
   const Background = theme.palette.secondary.main
+  const textColor = theme.palette.info.main
 
   return (
         <Box
@@ -98,26 +100,7 @@ const ServicesSection = () => {
 
       {/* Botón */}
       <Box mt={isLargeScreen ? 1 : 10} textAlign="center">
-        <Button
-          href={statics.WHATSAPP.link_whatsapp}
-          variant="contained"
-          color="primary"
-          sx={{
-            fontSize: "18px",
-            backgroundColor: "#333",
-            color: "#fff",
-            borderRadius: "25px",
-            padding: isSmallScreen ? "12px 50px" : "18px 100px",
-            border: "1px solid black",
-            transition: "background-color 0.3s, color 0.3s",
-            "&:hover": {
-              backgroundColor: "#eee",
-              color: "#333",
-            },
-          }}
-        >
-          {statics.COMPANY.BUTTON.NAME}
-        </Button>
+        <ButtonCub text={statics.COMPANY.BUTTON.NAME} hovered={statics.COMPANY.BUTTON.NAME} color_primary={Background} color_secondary={textColor} />
       </Box>
     </Container>
     </Box>

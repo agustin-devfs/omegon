@@ -1,0 +1,100 @@
+/* buttonCub.css */
+
+/* Puedes quitar o ajustar el body si no deseas aplicarlo globalmente */
+  
+  .ripple-button {
+    position: relative;
+    padding: 5rem 10rem;
+  
+    /* En lugar de background-color: white; */
+    background-color: var(--primary-color, white);
+  
+    /* En lugar de color: black; */
+    color: var(--secondary-color, black);
+  
+    font-size: 2rem;
+    border: 1px solid black;
+    border-radius: 8rem;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    text-align: center;
+    transition: background-color 0.8s ease, color 0.4s ease, opacity 0.3s ease, box-shadow 0.4s ease;
+    z-index: 1;
+  }
+  
+  .text,
+  .text-hover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    z-index: 1;
+  }
+  
+  /* Texto blanco, inicialmente oculto */
+  .text-hover {
+    color: var(--primary-color, white);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, 60%);
+  }
+  
+  /* Pseudo-elemento para el ripple */
+  .ripple-button:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+  
+    /* Aquí también podemos usar la variable para el "ripple" */
+    background: var(--secondary-color, black);
+  
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
+    transition: width 0.4s ease, height 0.4s ease;
+    width: 0;
+    height: 0;
+  }
+  
+  /* Efecto hover */
+  .ripple-button:hover .text {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  
+  .ripple-button:hover .text-hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%);
+  }
+  
+  .ripple-button:hover {
+    color: white;
+    animation: bounce 0.3s ease-out;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Animación de rebote */
+  @keyframes bounce {
+    0% {
+      transform: scaleX(1);
+    }
+    50% {
+      transform: scaleX(1.03);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+  
+  .ripple-button:hover:before,
+  .ripple-button:active:before {
+    width: 300%;
+    height: 300%;
+  }
+  

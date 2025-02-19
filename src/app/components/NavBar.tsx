@@ -10,8 +10,8 @@ import { statics } from "@/app/utils/statics";
 const Navbar: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const BackgroundColor = theme.palette.primary.main;
-  const textColor = theme.palette.info.main;
+  const BackgroundColor = theme.palette.info.main;
+  const textColor = theme.palette.primary.main;
 
   // Estado para el menú hamburguesa
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -38,8 +38,8 @@ const Navbar: React.FC = () => {
           <Image
             src="/assets/logos/logo.png"
             alt="Logo"
-            width={100}
-            height={50}
+            width={80}
+            height={40}
             loading="lazy"
           />
 

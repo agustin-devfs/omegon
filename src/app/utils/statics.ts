@@ -4,7 +4,8 @@ export const statics = {
   COMPANY: {
     NAME: "Omegon",
     INDUSTRY: "Tech Industry",
-    TEXT: "Desarrollamos soluciones tecnológicas a medida y te acompañamos en cada etapa de tu proyecto",
+    TITLE: "Desarrollamos soluciones tecnológicas a medida.",
+    TEXT: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
     BUTTON: { NAME: "Contact Us", link: "/contact" },
   },
 
@@ -59,7 +60,7 @@ export const statics = {
     CHAT_WITH_US: "Chat with us",
     SCHEDULE_MEETING: "Schedule a Meeting",
     TEXT_LINK: content.Whatsapp_Text_Link,
-    link_whatsapp : `https://wa.me/+5491157617111?text=${content.Whatsapp_Text_Link}`,
+    link_whatsapp : `https://wa.me/+5491122548874?text=${content.Whatsapp_Text_Link}`,
   },
 
    //FOOTER
