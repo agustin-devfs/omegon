@@ -17,23 +17,23 @@ export const statics = {
     },
     {
       item: "Services",
-      link: "/services",
+      link: "#services",
     },
     {
       item: "Success Cases",
-      link: "/success-cases",
+      link: "#success-cases",
     },
     {
       item: "About Us",
-      link: "/about-us",
+      link: "#about-us",
     },
     {
       item: "Testimonials",
-      link: "/testimonials",
+      link: "#testimonials",
     },
     {
       item: "Contact",
-      link: "/contact",
+      link: "#contact",
     },
   ],
 

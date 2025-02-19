@@ -12,7 +12,21 @@ const Home: NextPage = () => {
     <>
       <Navbar />
       <Hero />
+
+      <section id="services">
       <ServicesSection/>
+        </section>
+
+        <section id="aboutus">
+          
+        </section>
+
+
+        <section id="contactForm">
+{/*           <ContactForm />
+ */}        </section>
+
+
       <Footer/>
     </>
   )
