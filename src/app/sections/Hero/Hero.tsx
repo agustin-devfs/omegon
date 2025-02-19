@@ -1,19 +1,21 @@
 "use client";
 
 import React from "react";
-import { Box, Typography, Button, Container, Grid,  } from "@mui/material";
+import { Box, Typography, Button, Container, Grid, useTheme,  } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { statics } from "@/app/utils/statics";
 
 
-
 const Hero: React.FC= () => {
+  const theme = useTheme();
+  const Background = theme.palette.success.main
+  
   return (
     <Box
       sx={{
         // Fondo verde muy oscuro (primary.main)
-        backgroundColor: "primary.main",
+        backgroundColor: Background,
         // Color de texto por defecto en la sección
         color: "info.main", // Texto fosforescente
         py: { xs: 8, md: 12 }, // padding vertical (responsive)

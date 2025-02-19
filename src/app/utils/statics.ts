@@ -4,7 +4,7 @@ export const statics = {
   COMPANY: {
     NAME: "Omegon",
     INDUSTRY: "Tech Industry",
-    TEXT: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. ",
+    TEXT: "Desarrollamos soluciones tecnológicas a medida y te acompañamos en cada etapa de tu proyecto",
     BUTTON: { NAME: "Contact Us", link: "/contact" },
   },
 
@@ -54,9 +54,6 @@ export const statics = {
     MESSAGE: "Message",
     SEND: "Send",
   },
-
-  
-  
 
   WHATSAPP: {
     CHAT_WITH_US: "Chat with us",
