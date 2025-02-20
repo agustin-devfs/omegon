@@ -2,11 +2,11 @@ import { FC } from "react";
 import {
   Card,
   Box,
-  Divider,
   CardContent,
   Typography,
   useTheme,
   useMediaQuery,
+  Divider,
 } from "@mui/material";
 import Image from "next/image";
 
@@ -29,6 +29,8 @@ const CardService: FC<ServiceCardProps> = ({
   const isNormalScreen = useMediaQuery(theme.breakpoints.down("lg"));
   const isLargeScreen = useMediaQuery(theme.breakpoints.down("xl"));
 
+  const Background = theme.palette.primary.main;
+  const textColor = theme.palette.info.main;
 
   return (
     <Card
@@ -49,7 +51,7 @@ const CardService: FC<ServiceCardProps> = ({
             : isLargeScreen
               ? "25rem"
               : "30rem",
-        backgroundColor: "#EDEDED",
+        backgroundColor: Background,
         borderRadius: "25px",
         margin: "5%",
       }}
@@ -88,18 +90,18 @@ const CardService: FC<ServiceCardProps> = ({
       </Box>
       <Divider
         style={{
-          backgroundColor: "#A0730C",
+          backgroundColor: "transparent",
           padding: "1px",
           margin: "5% auto",
           height: "2px",
           width: isMediumScreen ? "70%" : "90%",
         }}
-      />
+      /> 
       <Typography
         sx={{
           fontFamily: "Raleway",
           fontWeight: 700,
-          color: "primary.main",
+          color: textColor,
           fontSize: isSmallScreen
             ? "28px"
             : isMediumScreen
@@ -123,7 +125,9 @@ const CardService: FC<ServiceCardProps> = ({
       <CardContent>
         <Typography
           style={{
-            color: "primary.main",
+            height: "100%",
+            fontFamily: "Raleway",
+            color: textColor,
             fontWeight: 500,
             fontSize: isSmallScreen
               ? "18px"
@@ -132,7 +136,7 @@ const CardService: FC<ServiceCardProps> = ({
                 : isLargeScreen
                   ? "24px"
                   : "26px",
-            lineHeight: "40px",
+            lineHeight: "35px",
             textAlign: "center",
           }}
         >

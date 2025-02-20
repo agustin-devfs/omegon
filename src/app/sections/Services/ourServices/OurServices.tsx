@@ -26,9 +26,8 @@ const ServicesSection = () => {
           sx={{
             // Fondo verde muy oscuro (primary.main)
             backgroundColor:Background,
-            // Color de texto por defecto en la sección
-            color: "info.main", // Texto fosforescente
-            py: { xs: 8, md: 12 }, // padding vertical (responsive)
+            color: textColor, 
+            py: { xs: 0.5, md: 1 }, 
           }}
         >
 
@@ -37,8 +36,8 @@ const ServicesSection = () => {
       maxWidth="xl"
       sx={{
         backgroundColor: Background,     
-        mt: isSmallScreen ? 4 : isMediumScreen ? 4 : isLargeScreen ? 12 : 12,
-        mb: isLargeScreen ? 8 : 14,
+        mt: 1,
+        mb: isLargeScreen ? 2 : 4,
       }}
     >
       {/* Título */}

@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import ButtonCub from "@/app/components/Buttons/Cub/buton";
 import Form from "@/app/components/form/form";
+import { statics } from "@/app/utils/statics";
 
 export type ContactFormData = {
   name: string;
@@ -56,7 +57,7 @@ const ContactSection: React.FC = () => {
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              ¿Querés saber más? ¡Contactanos!
+              {statics.SECTIONS_TITLE.CONTACT}
             </Typography>
           <Grid item xs={12} md={6}>
             <Typography

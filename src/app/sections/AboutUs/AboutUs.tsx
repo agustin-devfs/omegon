@@ -7,7 +7,7 @@ import {
   Grid,
   useTheme,
 } from "@mui/material";
-import Image from "next/image";
+//import Image from "next/image";
 import { content } from "@/app/utils/content";
 import { statics } from "@/app/utils/statics";
 
@@ -125,7 +125,7 @@ export default function AboutUs() {
                       overflow: "hidden",
                     }}
                   >
-                   <Image
+                {/*    <Image
                       src={member.image}
                       alt={member.name}
                       style={{
@@ -133,7 +133,7 @@ export default function AboutUs() {
                         width: "100%",
                         objectFit: "cover",
                       }}
-                    /> 
+                    />  */}
                   </Box>
                   <CardContent>
                     <Typography
