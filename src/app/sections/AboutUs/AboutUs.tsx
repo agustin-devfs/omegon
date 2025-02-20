@@ -125,7 +125,7 @@ export default function AboutUs() {
                       overflow: "hidden",
                     }}
                   >
-                  {/*   <Image
+                   <Image
                       src={member.image}
                       alt={member.name}
                       style={{
@@ -133,7 +133,7 @@ export default function AboutUs() {
                         width: "100%",
                         objectFit: "cover",
                       }}
-                    /> */}
+                    /> 
                   </Box>
                   <CardContent>
                     <Typography
