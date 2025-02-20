@@ -19,7 +19,7 @@ const theme = createTheme({
     info: {
       main: '#EDF252', // El amarillo
     },
-  
+    
   },
   components: {
     MuiCssBaseline: {

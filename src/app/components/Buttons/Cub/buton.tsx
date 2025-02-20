@@ -8,6 +8,7 @@ interface ButtonProps {
   hovered: string;
   color_primary: string;
   color_secondary: string;
+  size?: string
 }
 
 const ButtonCub: React.FC<ButtonProps> = ({
@@ -15,15 +16,19 @@ const ButtonCub: React.FC<ButtonProps> = ({
   hovered,
   color_primary,
   color_secondary,
+  size
 }) => {
   return (
     <button
       className="ripple-button"
-      style={{
-       
-        "--primary-color": color_primary,
-        "--secondary-color": color_secondary,
-      } as React.CSSProperties}
+      style={
+        {
+          "--re-size": size,
+
+          "--primary-color": color_primary,
+          "--secondary-color": color_secondary,
+        } as React.CSSProperties
+      }
     >
       <span className="text">{text}</span>
       <span className="text-hover">{hovered}</span>

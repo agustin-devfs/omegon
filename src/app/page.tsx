@@ -6,6 +6,8 @@ import Navbar from '@/app/components/NavBar'
 import Hero from '@/app/sections/Hero/Hero'
 import ServicesSection from './sections/Services/ourServices/OurServices'
 import Footer from './sections/Footer/Footer'
+import AboutUs from './sections/AboutUs/AboutUs'
+import ContactForm from './sections/Contact/ContactForm'
 
 const Home: NextPage = () => {
   return (
@@ -18,13 +20,13 @@ const Home: NextPage = () => {
         </section>
 
         <section id="aboutus">
-          
+          <AboutUs/>
         </section>
 
 
         <section id="contactForm">
-{/*           <ContactForm />
- */}        </section>
+          <ContactForm />
+        </section>
 
 
       <Footer/>

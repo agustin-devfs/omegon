@@ -23,4 +23,18 @@ export const content = {
     imageAlt: "Gamma",
     linkNav: "#"
   }],
+
+
+  teamMembers : [
+    {
+      name: "Agustin Rodriguez",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      image: "/assets/images/agus.jpg",
+    },
+    {
+      name: "Eugenia Galleguillo",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      image: "assets//images/euge.jpg",
+    },
+  ],
 };
