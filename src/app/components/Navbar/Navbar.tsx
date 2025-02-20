@@ -55,22 +55,22 @@ const Navbar: React.FC = () => {
 
   const menuItems: MenuItem[] = [
     {
-      text: "Inicio",
+      text: SECTIONS_TITLE.HOME,
       icon: <HomeIcon />,
       onClick: () => console.log("inicio"),
     },
     {
-      text: "nuestros servicios",
+      text: SECTIONS_TITLE.SERVICES,
       icon: <CalendarMonthIcon />,
       onClick: () => console.log("servicios"),
     },
     {
-      text: "sobre nosotros",
+      text: SECTIONS_TITLE.ABOUT_US,
       icon: <DescriptionIcon />,
       onClick: () => console.log("nosotros"),
     },
     {
-      text: "contactanos",
+      text: SECTIONS_TITLE.CONTACT,
       icon: <EmailIcon />,
       onClick: scrollToContact,
     },

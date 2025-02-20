@@ -34,10 +34,11 @@ export const statics = {
       link: "/",
     },
   ],
-  
 
   //SECTIONS
   SECTIONS_TITLE: {
+    HOME: "inicio",
+
     SERVICES: "Nuestros servicios",
 
     ABOUT_US: "¿Quienes somos?",
