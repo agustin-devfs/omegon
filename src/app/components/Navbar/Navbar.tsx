@@ -11,9 +11,12 @@ import Box from "@mui/material/Box";
 import Image from "next/image";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import DescriptionIcon from "@mui/icons-material/Description";
-import LanguageIcon from "@mui/icons-material/Language";
+import EmailIcon from '@mui/icons-material/Email';
 import CloseIcon from "@mui/icons-material/Close";
+import HomeIcon from "@mui/icons-material/Home";
 import { Instagram } from "@mui/icons-material";
+import { Typography, useTheme } from "@mui/material";
+import { statics } from "@/app/utils/statics";
 
 interface MenuItem {
   text: string;
@@ -22,6 +25,14 @@ interface MenuItem {
 }
 
 const Navbar: React.FC = () => {
+  const theme = useTheme();
+
+  const backgroundColor = theme.palette.info.main;
+  const textColor = theme.palette.primary.main;
+  const textColor2 = theme.palette.info.main;
+
+  const { SECTIONS_TITLE, COMPANY } = statics;
+
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawer = (open: boolean) => (): void => {
@@ -45,22 +56,22 @@ const Navbar: React.FC = () => {
   const menuItems: MenuItem[] = [
     {
       text: "Inicio",
-      icon: <CalendarMonthIcon />,
+      icon: <HomeIcon />,
       onClick: () => console.log("inicio"),
     },
     {
       text: "nuestros servicios",
-      icon: <DescriptionIcon />,
+      icon: <CalendarMonthIcon />,
       onClick: () => console.log("servicios"),
     },
     {
       text: "sobre nosotros",
-      icon: <LanguageIcon />,
+      icon: <DescriptionIcon />,
       onClick: () => console.log("nosotros"),
     },
     {
       text: "contactanos",
-      icon: <LanguageIcon />,
+      icon: <EmailIcon />,
       onClick: scrollToContact,
     },
 
@@ -77,7 +88,12 @@ const Navbar: React.FC = () => {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        sx={{ cursor: "pointer", padding: "20px", position: "relative" }}
+        sx={{
+          cursor: "pointer",
+          padding: "10px",
+          position: "relative",
+          backgroundColor: textColor,
+        }}
       >
         <Box
           sx={{
@@ -86,33 +102,58 @@ const Navbar: React.FC = () => {
             top: "50%",
             transform: "translateY(-50%)",
             cursor: "pointer",
-            color: "white",
+            color: textColor2,
             padding: "16px",
+            backgroundColor: textColor,
           }}
         >
           <CloseIcon onClick={toggleDrawer(false)} />
         </Box>
         <Box
           display="flex"
-          justifyContent="center"
+          justifyContent="space-between"
           alignItems="center"
-          sx={{ cursor: "pointer", pt: "16px" }}
+          alignContent={"center"}
+          sx={{ cursor: "pointer", backgroundColor: textColor}}
         >
           <Image
             src={"/assets/logos/logo.png"}
             width={50}
             height={50}
             alt="Omegon"
-            style={{ minHeight: "40px", maxHeight: "55px", maxWidth: "60px" }}
+            style={{
+              minHeight: "40px",
+              maxHeight: "55px",
+              maxWidth: "60px",
+              top: "50%",
+            }}
           />
+
+          <Typography
+            sx={{
+              fontFamily: "Raleway",
+              fontWeight: 600,
+              fontSize: { xs: "12px", md: "52px" },
+              lineHeight: { xs: "16px", md: "25px" },
+              letterSpacing: "1%",
+              color: theme.palette.info.main,
+              mb: 1,
+            }}
+          >
+            {COMPANY.NAME}
+          </Typography>
         </Box>
       </Box>
-      <List onClick={toggleDrawer(false)}>
+      <List sx={{padding:"0px" }}onClick={toggleDrawer(false)}>
         {menuItems.map((item, index) => (
           <ListItemButton
             key={index}
             onClick={item.onClick}
-            sx={{ color: "white", py: "5px", mx: 4 }}
+            sx={{
+              color: textColor,
+              border: "1px solid",              
+              borderBottom: "1px solid",
+            }}
           >
             {item.icon && (
               <Box component="span" sx={{ marginRight: 2 }}>
@@ -130,12 +171,12 @@ const Navbar: React.FC = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
-        sx={{ backgroundColor: "black", height: "60px" }}
+        sx={{ backgroundColor: backgroundColor, height: "60px" }}
       >
         <Toolbar sx={{ height: "100%", minHeight: "unset" }}>
           <IconButton
             edge="start"
-            color="inherit"
+            //color={textColor}
             aria-label="menu"
             onClick={toggleDrawer(true)}
             sx={{ mr: 2 }}
@@ -184,8 +225,8 @@ const Navbar: React.FC = () => {
           display: "block",
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
-            width: { xs: "100%", sm: "35%" },
-            backgroundColor: "black",
+            width: { xs: "100%", sm: "25%" },
+            backgroundColor: backgroundColor,
             overflow: "hidden",
           },
         }}
