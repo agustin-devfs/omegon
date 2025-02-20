@@ -20,8 +20,8 @@ export type ContactFormData = {
 const ContactSection: React.FC = () => {
   const theme = useTheme();
 
-  const backgroundColor = theme.palette.primary.main;
-  const textColor = theme.palette.info.main;
+  const backgroundColor = theme.palette.info.main;
+  const textColor = theme.palette.primary.main;
 
  
 

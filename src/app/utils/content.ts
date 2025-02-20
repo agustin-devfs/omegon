@@ -29,7 +29,7 @@ export const content = {
     {
       name: "Agustin Rodriguez",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      image: "/assets/images/agus.jpg",
+      image: "/assets/images/.jpg",
     },
     {
       name: "Eugenia Galleguillo",
