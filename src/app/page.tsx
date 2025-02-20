@@ -2,7 +2,7 @@
 
 import React from 'react'
 import type { NextPage } from 'next'
-import Navbar from '@/app/components/NavBar'
+import Navbar from '@/app/components/Navbar/Navbar'
 import Hero from '@/app/sections/Hero/Hero'
 import ServicesSection from './sections/Services/ourServices/OurServices'
 import Footer from './sections/Footer/Footer'
@@ -12,7 +12,8 @@ import ContactForm from './sections/Contact/ContactForm'
 const Home: NextPage = () => {
   return (
     <>
-      <Navbar />
+    <Navbar/>
+  
       <Hero />
 
       <section id="services">

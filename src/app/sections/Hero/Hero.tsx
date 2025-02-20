@@ -24,13 +24,14 @@ const Hero: React.FC = () => {
 
   const Background = theme.palette.success.main;
   const textColor = theme.palette.primary.main;
+  const textColor2 = theme.palette.info.main;
 
   return (
     <Box
       sx={{
         backgroundColor: Background,
-        color: "info.main", // Texto fosforescente
-        py: { xs: 2, md: 4 }, // padding vertical (responsive)
+        color: textColor2, // Texto fosforescente
+        py: { xs: 5, md: 10 }, // padding vertical (responsive)
       }}
     >
       <Container maxWidth="lg">
@@ -108,14 +109,14 @@ const Hero: React.FC = () => {
               underline="none"
               target="_blank"
             >
-               <Box mt={0.5} textAlign="center">
-              <ButtonCub
-                text={statics.COMPANY.BUTTON.NAME}
-                hovered={statics.COMPANY.BUTTON.NAME}
-                color_primary={textColor}
-                color_secondary={Background}
-                size="3rem 8rem"
-              />
+              <Box mt={0.5} textAlign="center">
+                <ButtonCub
+                  text={statics.COMPANY.BUTTON.NAME}
+                  hovered={statics.COMPANY.BUTTON.NAME}
+                  color_primary={textColor}
+                  color_secondary={Background}
+                  size="3rem 8rem"
+                />
               </Box>
             </Link>
           </Grid>

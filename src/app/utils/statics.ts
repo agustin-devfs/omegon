@@ -1,4 +1,4 @@
-import {content} from "./content"
+import { content } from "./content";
 
 export const statics = {
   COMPANY: {
@@ -20,12 +20,12 @@ export const statics = {
       item: "nuestros servicios",
       link: "#services",
     },
-   
+
     {
       item: "sobre nosotros",
       link: "#about-us",
     },
-      {
+    {
       item: "contactanos",
       link: "#contact",
     },
@@ -33,16 +33,15 @@ export const statics = {
       item: "instagram",
       link: "/",
     },
-    
-
   ],
+  
 
-//SECTIONS
+  //SECTIONS
   SECTIONS_TITLE: {
     SERVICES: "Nuestros servicios",
-    
+
     ABOUT_US: "¿Quienes somos?",
-   
+
     CONTACT: "¿Querés saber más?¡Contactanos!",
   },
 
@@ -59,14 +58,14 @@ export const statics = {
     CHAT_WITH_US: "Chat with us",
     SCHEDULE_MEETING: "Schedule a Meeting",
     TEXT_LINK: content.Whatsapp_Text_Link,
-    link_whatsapp : `https://wa.me/+5491122548874?text=${content.Whatsapp_Text_Link}`,
+    link_whatsapp: `https://wa.me/+5491122548874?text=${content.Whatsapp_Text_Link}`,
   },
 
-   //FOOTER
-   FOOTER : {
+  //FOOTER
+  FOOTER: {
     terms: "Terms",
-    privacy:"Privacy",
+    privacy: "Privacy",
     ALL_RIGHTS_RESERVED: "© 2025 Omegon. All Rights Reserved.",
     FOLLOW_US: "Follow Us",
-  }
+  },
 };
