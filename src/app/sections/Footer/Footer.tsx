@@ -23,8 +23,8 @@ export default function Footer() {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
 
-  const BackgroundColor = theme.palette.info.main;
-  const textColor = theme.palette.primary.main;
+  const BackgroundColor = theme.palette.primary.main;
+  const textColor = theme.palette.info.main;
 
 
 
@@ -47,7 +47,7 @@ export default function Footer() {
             sx={{ display: "flex", alignItems: "center" }}
           >
             <Image
-              src="/assets/logos/logo_oscuro.png"
+              src="/assets/logos/logo_claro.png"
               alt="LogoIcon"
               loading="lazy"
               width={isSmallScreen ? 50 : 55}
