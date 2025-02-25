@@ -26,8 +26,6 @@ export default function Footer() {
   const BackgroundColor = theme.palette.primary.main;
   const textColor = theme.palette.info.main;
 
-
-
   return (
     <AppBar
       position="static"
@@ -79,7 +77,7 @@ export default function Footer() {
                   gap: 0.5,
                 }}
               >
-               {/*  <Image
+                {/*  <Image
                   src={n.imageSrc}
                   alt={n.imageAlt}
                   loading="lazy"
@@ -88,18 +86,18 @@ export default function Footer() {
                   style={{ borderRadius: "10%" }}
                 /> */}
 
-                   {createElement("lord-icon", {
-                          src: n.iconSrc,
-                          trigger: "in",
-                          delay: "1500",
-                          state: "in-reveal",
-                          colors: "primary:#e4e4e4,secondary:#7abf5a",
-                          style: { width: "50px", height: "50px" },
-                          alt: n.imageAlt,
-                        })}
+                {createElement("lord-icon", {
+                  src: n.iconSrc,
+                  trigger: "in",
+                  delay: "1500",
+                  state: "in-reveal",
+                  colors: "primary:#e4e4e4,secondary:#7abf5a",
+                  style: { width: "50px", height: "50px" },
+                  alt: n.imageAlt,
+                })}
                 <Typography
                   sx={{
-                    fontFamily: "Raleway",
+                    fontFamily: "Exo",
                     fontWeight: 600,
                     fontSize: { xs: "12px", md: "22px" },
                     lineHeight: { xs: "16px", md: "25px" },
@@ -176,7 +174,7 @@ export default function Footer() {
               >
                 {statics.FOOTER.privacy}
               </Link>
-              <Typography variant="body2" sx={{ opacity: 0.7 }}>
+              <Typography variant="body2" sx={{ fontFamily: "Exo", opacity: 0.7 }}>
                 {statics.FOOTER.ALL_RIGHTS_RESERVED}
               </Typography>
             </Stack>

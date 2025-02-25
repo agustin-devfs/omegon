@@ -144,7 +144,7 @@ const Navbar: React.FC = () => {
 
           <Typography
             sx={{
-              fontFamily: "exo",
+              fontFamily: "Exo",
               fontWeight: 600,
               fontSize: { xs: "12px", md: "52px" },
               lineHeight: { xs: "16px", md: "25px" },

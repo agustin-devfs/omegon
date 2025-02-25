@@ -36,6 +36,7 @@ export default function AboutUs() {
         <Typography
           variant="h2"
           sx={{
+            fontFamily: "Exo",
             fontWeight: "bold",
             mb: 2,
             fontSize: { xs: "2rem", md: "3rem" },
@@ -47,7 +48,7 @@ export default function AboutUs() {
         {/* Subtítulo o texto breve */}
         <Typography
           sx={{
-            fontFamily: "Raleway",
+            fontFamily: "Exo",
             fontWeight: 600,
             fontSize: { xs: "12px", md: "52px" },
             lineHeight: { xs: "16px", md: "25px" },
@@ -61,7 +62,7 @@ export default function AboutUs() {
 
         <Typography
           sx={{
-            fontFamily: "Raleway",
+            fontFamily: "Exo",
             fontWeight: 600,
             fontSize: { xs: "12px", md: "22px" },
             lineHeight: { xs: "16px", md: "25px" },
@@ -75,7 +76,7 @@ export default function AboutUs() {
 
         <Typography
           sx={{
-            fontFamily: "Raleway",
+            fontFamily: "Exo",
             fontWeight: 600,
             fontSize: { xs: "12px", md: "22px" },
             lineHeight: { xs: "16px", md: "25px" },
@@ -128,7 +129,7 @@ export default function AboutUs() {
                       overflow: "hidden",
                     }}
                   >
-                <Image
+                    <Image
                       src={member.image}
                       alt={member.name}
                       width={200}
@@ -138,12 +139,13 @@ export default function AboutUs() {
                         width: "100%",
                         height: "100%",
                       }}
-                    /> 
+                    />
                   </Box>
                   <CardContent>
                     <Typography
                       variant="h6"
                       sx={{
+                        fontFamily: "Exo",
                         fontWeight: "bold",
                         mt: 2,
                         textAlign: "center",
@@ -154,7 +156,12 @@ export default function AboutUs() {
                     </Typography>
                     <Typography
                       variant="body2"
-                      sx={{ color: textColor, mt: 1, textAlign: "center" }}
+                      sx={{
+                        fontFamily: "Exo",
+                        color: textColor,
+                        mt: 1,
+                        textAlign: "center",
+                      }}
                     >
                       {member.description}
                     </Typography>

@@ -71,6 +71,8 @@ const Hero: React.FC = () => {
             variant="h1"
             component="h1"
             fontSize={80}
+            fontWeight={600}
+            fontFamily="Exo"
             sx={{ mb: 0, zIndex: 0, maxWidth: "100%" }}
           >
             {statics.COMPANY.TITLE.split(/(propósito|precisión)/gi).map(
@@ -86,7 +88,7 @@ const Hero: React.FC = () => {
             <Typography
               variant="h3"
               fontSize={20}
-              sx={{ color: "#FFFFFF", mb: 4 }}
+              sx={{ fontFamily: "Exo", color: "#FFFFFF", mb: 4 }}
             >
               {statics.COMPANY.TEXT}
             </Typography>
@@ -133,7 +135,7 @@ const Hero: React.FC = () => {
                   })}
                   <Typography
                     sx={{
-                      fontFamily: "Raleway",
+                      fontFamily: "Exo",
                       fontWeight: 600,
                       fontSize: { xs: "12px", md: "19px" },
                       lineHeight: { xs: "16px", md: "25px" },

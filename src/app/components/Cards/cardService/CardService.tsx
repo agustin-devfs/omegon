@@ -120,7 +120,7 @@ const CardService: FC<ServiceCardProps> = ({
       />
       <Typography
         sx={{
-          fontFamily: "Raleway",
+          fontFamily: "Exo",
           fontWeight: 700,
           color: textColor,
           fontSize: isSmallScreen
@@ -147,7 +147,7 @@ const CardService: FC<ServiceCardProps> = ({
         <Typography
           style={{
             height: "100%",
-            fontFamily: "Raleway",
+            fontFamily: "Exo",
             color: textColor,
             fontWeight: 500,
             fontSize: isSmallScreen

@@ -50,6 +50,7 @@ const ContactSection: React.FC = () => {
             <Typography
               variant="h3"
               sx={{
+                fontFamily: "Exo",
                 fontWeight: "bold",
                 mb: 2,
                 textAlign: "center", // Centramos el texto
