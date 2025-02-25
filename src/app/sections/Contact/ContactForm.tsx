@@ -42,65 +42,84 @@ const ContactSection: React.FC = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Grid
-          container
-          spacing={4}
-          alignItems="center"
-          justifyContent="space-between"
-          sx={{ flexDirection: { xs: "column", md: "row" } }}
-        >
-          {/* Sección Izquierda: Título y símbolo Ω */}
-          <Typography
-            variant="h3"
-            sx={{
-              fontWeight: "bold",
-              mb: 2,
-              textAlign: { xs: "center", md: "center" },
-            }}
-          >
-            {statics.SECTIONS_TITLE.CONTACT}
-          </Typography>
-          <Grid item xs={12} md={6}>
-            <Image
-              src="/assets/logos/logo_oscuro.png"
-              alt="LogoIcon"
-              loading="lazy"
-              width={isSmallScreen ? 250 : 150}
-              height={isSmallScreen ? 250 : 150}
-              style={{ borderRadius: "10%" }}
-            />
+        {/* Contenedor principal en columna para colocar el título arriba y las dos columnas debajo */}
+        <Grid container spacing={4} sx={{ flexDirection: "column" }}>
+          
+          {/* Grid item para el título, centrado en toda la sección */}
+          <Grid item xs={12}>
             <Typography
-              variant="h1"
+              variant="h3"
               sx={{
                 fontWeight: "bold",
-                lineHeight: 1,
-                fontSize: { xs: "1rem", sm: "3rem", md: "7rem" },
-                textAlign: { xs: "center", md: "left" },
+                mb: 2,
+                textAlign: "center", // Centramos el texto
               }}
             >
-              Omegon
+              {statics.SECTIONS_TITLE.CONTACT}
             </Typography>
           </Grid>
 
-          {/* Sección Derecha: Formulario */}
-          <Grid item xs={12} md={6}>
-            <Box
-              component="form"
-              onSubmit={handleSubmit}
-              sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-            >
-              <Form />
-
-              <Box mt={1} textAlign="center">
-                <ButtonCub
-                  text={"submit"}
-                  hovered={"submit"}
-                  color_primary={textColor}
-                  color_secondary={backgroundColor}
-                  size="2rem 5rem"
+          {/* Grid container para dividir en dos columnas: logo/OMEGON a la izquierda y formulario a la derecha */}
+          <Grid
+            item
+            container
+            spacing={4}
+            alignItems="center"
+            justifyContent="space-between"
+            sx={{ flexDirection: { xs: "column", md: "row" } }}
+          >
+            {/* Columna izquierda: Logo y texto OMEGON, ambos centrados */}
+            <Grid item xs={12} md={6}>
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Image
+                  src="/assets/logos/logo_oscuro.png"
+                  alt="LogoIcon"
+                  loading="lazy"
+                  width={isSmallScreen ? 250 : 150}
+                  height={isSmallScreen ? 250 : 150}
+                  style={{ borderRadius: "10%" }}
                 />
+                <Typography
+                  variant="h1"
+                  sx={{
+                    fontWeight: "bold",
+                    fontFamily: "Exo",
+                    lineHeight: 1,
+                    mt: 2,
+                    fontSize: { xs: "1rem", sm: "3rem", md: "7rem" },
+                    textAlign: "center", // Centramos el texto
+                  }}
+                >
+                  OMEGON
+                </Typography>
               </Box>
-            </Box>
+            </Grid>
+
+            {/* Columna derecha: Formulario */}
+            <Grid item xs={12} md={6}>
+              <Box
+                component="form"
+                onSubmit={handleSubmit}
+                sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+              >
+                <Form />
+
+                <Box mt={1} textAlign="center">
+                  <ButtonCub
+                    text={"submit"}
+                    hovered={"submit"}
+                    color_primary={textColor}
+                    color_secondary={backgroundColor}
+                    size="2rem 5rem"
+                  />
+                </Box>
+              </Box>
+            </Grid>
           </Grid>
         </Grid>
       </Container>

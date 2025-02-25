@@ -28,17 +28,22 @@ const Hero: React.FC = () => {
   const textColor = theme.palette.primary.main;
   const textColor2 = theme.palette.info.main;
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <Box
       sx={{
         position: "relative",
         width: "100%",
-        height: "100vh",
+        height: "80vh",
         overflow: "hidden",
-        py: { xs: 5, md: 10 },
+        py: { xs: 5, md: 15 },
       }}
     >
-      {/* Canvas con el shader (fondo) */}
       <Box
         sx={{
           position: "absolute",
@@ -62,16 +67,22 @@ const Hero: React.FC = () => {
         }}
       >
         <Grid container spacing={1} alignItems="center">
+          <Typography
+            variant="h1"
+            component="h1"
+            fontSize={80}
+            sx={{ mb: 0, zIndex: 0, maxWidth: "100%" }}
+          >
+            {statics.COMPANY.TITLE.split(/(propósito|precisión)/gi).map(
+              (word, index) =>
+                ["propósito", "precisión"].includes(word.toLowerCase()) ? (
+                  <strong key={index}>{word}</strong>
+                ) : (
+                  word
+                )
+            )}
+          </Typography>
           <Grid item xs={12} md={6}>
-            <Typography
-              variant="h2"
-              component="h1"
-              fontSize={90}
-              sx={{ mb: 0, zIndex: 0, maxWidth: "100%" }}
-            >
-              {statics.COMPANY.TITLE}
-            </Typography>
-
             <Typography
               variant="h3"
               fontSize={20}
@@ -138,22 +149,15 @@ const Hero: React.FC = () => {
               ))}
             </Stack>
 
-            <Link
-              href={statics.COMPANY.BUTTON.link}
-              rel="noopener noreferrer"
-              underline="none"
-              target="_blank"
-            >
-              <Box mt={0.5} textAlign="center">
-                <ButtonCub
-                  text={statics.COMPANY.BUTTON.NAME}
-                  hovered={statics.COMPANY.BUTTON.NAME}
-                  color_primary={textColor}
-                  color_secondary={Background}
-                  size="3rem 8rem"
-                />
-              </Box>
-            </Link>
+            <Box onClick={scrollToContact} mt={0.5} textAlign="center">
+              <ButtonCub
+                text={statics.COMPANY.BUTTON.NAME}
+                hovered={statics.COMPANY.BUTTON.NAME}
+                color_primary={textColor}
+                color_secondary={Background}
+                size="3rem 8rem"
+              />
+            </Box>
           </Grid>
 
           <Grid item xs={12} md={6}>

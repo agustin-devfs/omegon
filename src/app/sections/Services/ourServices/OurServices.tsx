@@ -7,10 +7,10 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import CardService from "@/app/components/Cards/cardService/CardService";
 import { statics } from "@/app/utils/statics";
 import { content } from "@/app/utils/content";
 import ButtonCub from "@/app/components/Buttons/Cub/buton";
+import CardServices from "@/app/components/Cards/cardService/CardServices";
 
 const ServicesSection = () => {
   const theme = useTheme();
@@ -21,7 +21,12 @@ const ServicesSection = () => {
   const Background = theme.palette.secondary.main
   const textColor = theme.palette.info.main
 
-
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
 
   return (
@@ -75,33 +80,36 @@ const ServicesSection = () => {
         container
         spacing={isSmallScreen ? 0 : isMediumScreen ? 1 : 4}
         justifyContent="center"
+        flexDirection={"column"}
+        alignItems= {"center"}
       >
         {content.cards.map((card, index) => (
           <Grid
             item
-            xs={10}
-            sm={5}
-            md={4}
+            xs={4}
+            sm={10}
+            md={12}
             key={index}
             sx={{
               display: "flex",
-              flexDirection: "column",
+              flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
             }}
           >
-            <CardService
-              title={card.title}
-              description={card.description}
-              iconSrc={card.iconSrc}
+            <CardServices
+              imageSrc={card.imageSrc}
               imageAlt={card.imageAlt}
-            />
+              linkNav={card.linkNav}
+              index={index} 
+              title={card.title} 
+              description={card.description}            />
           </Grid>
         ))}
       </Grid>
 
       {/* Botón */}
-      <Box mt={isLargeScreen ? 1 : 10} textAlign="center">
+      <Box mt={isLargeScreen ? 1 : 10} textAlign="center" onClick={scrollToContact}>
         <ButtonCub text={statics.COMPANY.BUTTON.NAME} hovered={statics.COMPANY.BUTTON.NAME} color_primary={Background} color_secondary={textColor} />
       </Box>
     </Container>

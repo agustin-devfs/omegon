@@ -27,9 +27,11 @@ interface MenuItem {
 const Navbar: React.FC = () => {
   const theme = useTheme();
 
-  const backgroundColor = theme.palette.info.main;
-  const textColor = theme.palette.primary.main;
-  const textColor2 = theme.palette.info.main;
+  const backgroundColorOscuro = theme.palette.primary.main;
+  const backgroundColorClaro = theme.palette.info.main;
+
+  const textColorOscuro = theme.palette.primary.main;
+  const textColorClaro = theme.palette.info.main;
 
   const { SECTIONS_TITLE, COMPANY } = statics;
 
@@ -103,7 +105,7 @@ const Navbar: React.FC = () => {
           cursor: "pointer",
           padding: "10px",
           position: "relative",
-          backgroundColor: textColor,
+          backgroundColor: backgroundColorOscuro,
         }}
       >
         <Box
@@ -113,9 +115,9 @@ const Navbar: React.FC = () => {
             top: "50%",
             transform: "translateY(-50%)",
             cursor: "pointer",
-            color: textColor2,
+            color: textColorClaro,
             padding: "16px",
-            backgroundColor: textColor,
+            backgroundColor: textColorOscuro,
           }}
         >
           <CloseIcon onClick={toggleDrawer(false)} />
@@ -125,7 +127,7 @@ const Navbar: React.FC = () => {
           justifyContent="space-between"
           alignItems="center"
           alignContent={"center"}
-          sx={{ cursor: "pointer", backgroundColor: textColor }}
+          sx={{ cursor: "pointer", backgroundColor: textColorOscuro }}
         >
           <Image
             src={"/assets/logos/logo_claro.png"}
@@ -147,7 +149,7 @@ const Navbar: React.FC = () => {
               fontSize: { xs: "12px", md: "52px" },
               lineHeight: { xs: "16px", md: "25px" },
               letterSpacing: "1%",
-              color: theme.palette.info.main,
+              color: textColorClaro,
               mb: 0,
             }}
           >
@@ -161,7 +163,7 @@ const Navbar: React.FC = () => {
             key={index}
             onClick={item.onClick}
             sx={{
-              color: textColor,
+              color: textColorOscuro,
               border: "1px solid",
               borderBottom: "1px solid",
             }}
@@ -182,15 +184,14 @@ const Navbar: React.FC = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
-        sx={{ backgroundColor: backgroundColor, height: "60px" }}
+        sx={{ backgroundColor: backgroundColorOscuro, height: "60px" }}
       >
         <Toolbar sx={{ height: "100%", minHeight: "unset" }}>
           <IconButton
             edge="start"
-            //color={textColor}
             aria-label="menu"
             onClick={toggleDrawer(true)}
-            sx={{ mr: 2 }}
+            sx={{ mr: 2, color: textColorClaro }}
           >
             <MenuIcon />
           </IconButton>
@@ -210,7 +211,7 @@ const Navbar: React.FC = () => {
             onClick={scrollToHero}
           >
             <Image
-              src={"/assets/logos/logo_oscuro.png"}
+              src={"/assets/logos/logo_claro.png"}
               width={60}
               height={60}
               alt="Omegon"
@@ -237,7 +238,7 @@ const Navbar: React.FC = () => {
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: { xs: "100%", sm: "25%" },
-            backgroundColor: backgroundColor,
+            backgroundColor: backgroundColorClaro,
             overflow: "hidden",
           },
         }}
