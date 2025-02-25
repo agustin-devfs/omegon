@@ -11,7 +11,7 @@ import Box from "@mui/material/Box";
 import Image from "next/image";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import DescriptionIcon from "@mui/icons-material/Description";
-import EmailIcon from '@mui/icons-material/Email';
+import EmailIcon from "@mui/icons-material/Email";
 import CloseIcon from "@mui/icons-material/Close";
 import HomeIcon from "@mui/icons-material/Home";
 import { Instagram } from "@mui/icons-material";
@@ -39,6 +39,24 @@ const Navbar: React.FC = () => {
     setDrawerOpen(open);
   };
 
+  const scrollToHero = () => {
+    const HeroSection = document.getElementById("hero");
+    if (HeroSection) {
+      HeroSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const scrollToServices = () => {
+    const HeroSection = document.getElementById("services");
+    if (HeroSection) {
+      HeroSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const scrollToAboutUs = () => {
+    const HeroSection = document.getElementById("aboutus");
+    if (HeroSection) {
+      HeroSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -46,28 +64,21 @@ const Navbar: React.FC = () => {
     }
   };
 
-  const scrollToHero = () => {
-    const HeroSection = document.getElementById("Hero");
-    if (HeroSection) {
-      HeroSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const menuItems: MenuItem[] = [
     {
       text: SECTIONS_TITLE.HOME,
       icon: <HomeIcon />,
-      onClick: () => console.log("inicio"),
+      onClick: scrollToHero,
     },
     {
       text: SECTIONS_TITLE.SERVICES,
       icon: <CalendarMonthIcon />,
-      onClick: () => console.log("servicios"),
+      onClick: scrollToServices,
     },
     {
       text: SECTIONS_TITLE.ABOUT_US,
       icon: <DescriptionIcon />,
-      onClick: () => console.log("nosotros"),
+      onClick: scrollToAboutUs,
     },
     {
       text: SECTIONS_TITLE.CONTACT,
@@ -114,10 +125,10 @@ const Navbar: React.FC = () => {
           justifyContent="space-between"
           alignItems="center"
           alignContent={"center"}
-          sx={{ cursor: "pointer", backgroundColor: textColor}}
+          sx={{ cursor: "pointer", backgroundColor: textColor }}
         >
           <Image
-            src={"/assets/logos/logo.png"}
+            src={"/assets/logos/logo_claro.png"}
             width={50}
             height={50}
             alt="Omegon"
@@ -131,27 +142,27 @@ const Navbar: React.FC = () => {
 
           <Typography
             sx={{
-              fontFamily: "Raleway",
+              fontFamily: "exo",
               fontWeight: 600,
               fontSize: { xs: "12px", md: "52px" },
               lineHeight: { xs: "16px", md: "25px" },
               letterSpacing: "1%",
               color: theme.palette.info.main,
-              mb: 1,
+              mb: 0,
             }}
           >
             {COMPANY.NAME}
           </Typography>
         </Box>
       </Box>
-      <List sx={{padding:"0px" }}onClick={toggleDrawer(false)}>
+      <List sx={{ padding: "0px" }} onClick={toggleDrawer(false)}>
         {menuItems.map((item, index) => (
           <ListItemButton
             key={index}
             onClick={item.onClick}
             sx={{
               color: textColor,
-              border: "1px solid",              
+              border: "1px solid",
               borderBottom: "1px solid",
             }}
           >
@@ -199,7 +210,7 @@ const Navbar: React.FC = () => {
             onClick={scrollToHero}
           >
             <Image
-              src={"/assets/logos/logo.png"}
+              src={"/assets/logos/logo_oscuro.png"}
               width={60}
               height={60}
               alt="Omegon"

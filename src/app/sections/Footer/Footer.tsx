@@ -11,18 +11,12 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { Instagram, LinkedIn} from "@mui/icons-material";
+import { Instagram, LinkedIn } from "@mui/icons-material";
 import Image from "next/image";
 import { statics } from "@/app/utils/statics";
 import { content } from "@/app/utils/content";
-
-export interface ServiceNav {
-  title: string,
-  description: string,
-  imageSrc: string,
-  imageAlt: string,
-  linkNav:string,
-}
+import { ServiceCardProps } from "@/app/components/Cards/cardService/CardService";
+import { createElement } from "react";
 
 export default function Footer() {
   const theme = useTheme();
@@ -31,6 +25,8 @@ export default function Footer() {
 
   const BackgroundColor = theme.palette.info.main;
   const textColor = theme.palette.primary.main;
+
+
 
   return (
     <AppBar
@@ -51,7 +47,7 @@ export default function Footer() {
             sx={{ display: "flex", alignItems: "center" }}
           >
             <Image
-              src="/assets/logos/logo.png"
+              src="/assets/logos/logo_oscuro.png"
               alt="LogoIcon"
               loading="lazy"
               width={isSmallScreen ? 50 : 55}
@@ -69,7 +65,7 @@ export default function Footer() {
               marginLeft: { xs: "5%", md: "20%" },
             }}
           >
-            {content.cards.map((n: ServiceNav, index: number) => (
+            {content.cards.map((n: ServiceCardProps, index: number) => (
               <Link
                 key={index}
                 href={n.linkNav}
@@ -83,14 +79,24 @@ export default function Footer() {
                   gap: 0.5,
                 }}
               >
-                <Image
+               {/*  <Image
                   src={n.imageSrc}
                   alt={n.imageAlt}
                   loading="lazy"
                   width={isSmallScreen ? 16 : 24}
                   height={24}
                   style={{ borderRadius: "10%" }}
-                />
+                /> */}
+
+                   {createElement("lord-icon", {
+                          src: n.iconSrc,
+                          trigger: "in",
+                          delay: "1500",
+                          state: "in-reveal",
+                          colors: "primary:#e4e4e4,secondary:#7abf5a",
+                          style: { width: "50px", height: "50px" },
+                          alt: n.imageAlt,
+                        })}
                 <Typography
                   sx={{
                     fontFamily: "Raleway",

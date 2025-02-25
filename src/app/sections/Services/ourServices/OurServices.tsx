@@ -21,6 +21,9 @@ const ServicesSection = () => {
   const Background = theme.palette.secondary.main
   const textColor = theme.palette.info.main
 
+
+
+
   return (
         <Box
           sx={{
@@ -90,7 +93,7 @@ const ServicesSection = () => {
             <CardService
               title={card.title}
               description={card.description}
-              imageSrc={card.imageSrc}
+              iconSrc={card.iconSrc}
               imageAlt={card.imageAlt}
             />
           </Grid>

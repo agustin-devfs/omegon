@@ -4,9 +4,11 @@ import {
   Container,
   Grid,
   Typography,
- 
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
+import Image from "next/image";
+
 import ButtonCub from "@/app/components/Buttons/Cub/buton";
 import Form from "@/app/components/form/form";
 import { statics } from "@/app/utils/statics";
@@ -20,11 +22,10 @@ export type ContactFormData = {
 
 const ContactSection: React.FC = () => {
   const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const backgroundColor = theme.palette.info.main;
   const textColor = theme.palette.primary.main;
-
- 
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -49,27 +50,35 @@ const ContactSection: React.FC = () => {
           sx={{ flexDirection: { xs: "column", md: "row" } }}
         >
           {/* Sección Izquierda: Título y símbolo Ω */}
-            <Typography
-              variant="h3"
-              sx={{
-                fontWeight: "bold",
-                mb: 2,
-                textAlign: { xs: "center", md: "left" },
-              }}
-            >
-              {statics.SECTIONS_TITLE.CONTACT}
-            </Typography>
+          <Typography
+            variant="h3"
+            sx={{
+              fontWeight: "bold",
+              mb: 2,
+              textAlign: { xs: "center", md: "center" },
+            }}
+          >
+            {statics.SECTIONS_TITLE.CONTACT}
+          </Typography>
           <Grid item xs={12} md={6}>
+            <Image
+              src="/assets/logos/logo_oscuro.png"
+              alt="LogoIcon"
+              loading="lazy"
+              width={isSmallScreen ? 250 : 150}
+              height={isSmallScreen ? 250 : 150}
+              style={{ borderRadius: "10%" }}
+            />
             <Typography
               variant="h1"
               sx={{
                 fontWeight: "bold",
                 lineHeight: 1,
-                fontSize: { xs: "8rem", sm: "10rem", md: "32rem" },
+                fontSize: { xs: "1rem", sm: "3rem", md: "7rem" },
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              Ω
+              Omegon
             </Typography>
           </Grid>
 
@@ -80,7 +89,7 @@ const ContactSection: React.FC = () => {
               onSubmit={handleSubmit}
               sx={{ display: "flex", flexDirection: "column", gap: 2 }}
             >
-            <Form/>
+              <Form />
 
               <Box mt={1} textAlign="center">
                 <ButtonCub
@@ -93,7 +102,6 @@ const ContactSection: React.FC = () => {
               </Box>
             </Box>
           </Grid>
-
         </Grid>
       </Container>
     </Box>

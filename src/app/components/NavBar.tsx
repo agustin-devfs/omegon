@@ -1,7 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
-import { AppBar, Toolbar, Button, useTheme, Container, Grid, IconButton, Menu, MenuItem, useMediaQuery } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Button,
+  useTheme,
+  Container,
+  Grid,
+  IconButton,
+  Menu,
+  MenuItem,
+  useMediaQuery,
+} from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -36,7 +47,7 @@ const Navbar: React.FC = () => {
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           {/* Logo */}
           <Image
-            src="/assets/logos/logo.png"
+            src="/assets/logos/logo_oscuro.png"
             alt="Logo"
             width={80}
             height={40}
@@ -69,7 +80,9 @@ const Navbar: React.FC = () => {
                 {statics.NAV_ITEMS.map((nav, i) => (
                   <MenuItem key={i} onClick={handleMenuClose}>
                     <Link href={nav.link} passHref>
-                      <Button sx={{ color: "black", width: "100%" }}>{nav.item}</Button>
+                      <Button sx={{ color: "black", width: "100%" }}>
+                        {nav.item}
+                      </Button>
                     </Link>
                   </MenuItem>
                 ))}

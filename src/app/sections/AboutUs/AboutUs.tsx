@@ -7,7 +7,7 @@ import {
   Grid,
   useTheme,
 } from "@mui/material";
-//import Image from "next/image";
+import Image from "next/image";
 import { content } from "@/app/utils/content";
 import { statics } from "@/app/utils/statics";
 
@@ -74,7 +74,6 @@ export default function AboutUs() {
         </Typography>
 
         <Typography
-         
           sx={{
             fontFamily: "Raleway",
             fontWeight: 600,
@@ -93,20 +92,24 @@ export default function AboutUs() {
           container
           justifyContent="space-evenly" // space-between
           sx={{
-            backgroundColor: "black",
+            backgroundImage: "url('/assets/backgrounds/hero.png')", // Ruta de la imagen
+            backgroundSize: "cover", // Ajusta la imagen para que cubra el área
+            backgroundPosition: "center", // Centra la imagen
+            backgroundRepeat: "no-repeat", // Evita que se repita
             borderRadius: 5,
             p: 4,
           }}
         >
           {teamMembers.map((member, index) => (
-            <Grid item key={index} xs={12} sm={6} md={4} >
+            <Grid item key={index} xs={12} sm={6} md={4}>
               <Card
                 sx={{
                   backgroundColor: "transparent",
+                  border: "none", // Asegura que no haya borde
+                  boxShadow: "none", // También elimina cualquier sombra que pueda parecer un borde
                   color: "white",
                   p: 4,
                   borderRadius: 2,
-                  boxShadow: 4,
                 }}
               >
                 <Box
@@ -125,20 +128,27 @@ export default function AboutUs() {
                       overflow: "hidden",
                     }}
                   >
-                {/*    <Image
+                <Image
                       src={member.image}
                       alt={member.name}
+                      width={200}
+                      height={200}
                       style={{
-                        height: "100%",
-                        width: "100%",
                         objectFit: "cover",
+                        width: "100%",
+                        height: "100%",
                       }}
-                    />  */}
+                    /> 
                   </Box>
                   <CardContent>
                     <Typography
                       variant="h6"
-                      sx={{ fontWeight: "bold", mt: 2, textAlign: "center",color: textColor }}
+                      sx={{
+                        fontWeight: "bold",
+                        mt: 2,
+                        textAlign: "center",
+                        color: textColor,
+                      }}
                     >
                       {member.name}
                     </Typography>
@@ -151,9 +161,7 @@ export default function AboutUs() {
                   </CardContent>
                 </Box>
               </Card>
-              
             </Grid>
-          
           ))}
         </Grid>
       </Container>

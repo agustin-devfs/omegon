@@ -1,6 +1,7 @@
+// components/Hero.tsx
 "use client";
 
-import React from "react";
+import React, { createElement } from "react";
 import {
   Box,
   Typography,
@@ -12,10 +13,11 @@ import {
   Link,
 } from "@mui/material";
 import Image from "next/image";
+import ShaderCanvas from "@/app/sections/Hero/ShaderCanvas"; // Ajusta la ruta según tu estructura
 import { statics } from "@/app/utils/statics";
-import { ServiceNav } from "../Footer/Footer";
 import { content } from "@/app/utils/content";
 import ButtonCub from "@/app/components/Buttons/Cub/buton";
+import { ServiceCardProps } from "@/app/components/Cards/cardService/CardService";
 
 const Hero: React.FC = () => {
   const theme = useTheme();
@@ -29,24 +31,47 @@ const Hero: React.FC = () => {
   return (
     <Box
       sx={{
-        backgroundColor: Background,
-        color: textColor2, // Texto fosforescente
-        py: { xs: 5, md: 10 }, // padding vertical (responsive)
+        position: "relative",
+        width: "100%",
+        height: "100vh",
+        overflow: "hidden",
+        py: { xs: 5, md: 10 },
       }}
     >
-      <Container maxWidth="lg">
-        <Grid container spacing={1} alignItems="center">
-          {/* Columna de texto (izquierda en pantallas md+) */}
-          <Typography
-            variant="h2"
-            component="h1"
-            fontSize={90}
-            sx={{ mb: 0, zIndex: 1, maxWidth: "100%" }}
-          >
-            {statics.COMPANY.TITLE}
-          </Typography>
+      {/* Canvas con el shader (fondo) */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+        }}
+      >
+        <ShaderCanvas />
+      </Box>
 
+      {/* Contenido de la sección Hero */}
+      <Container
+        maxWidth="lg"
+        sx={{
+          position: "relative",
+          zIndex: 1,
+          color: textColor2,
+        }}
+      >
+        <Grid container spacing={1} alignItems="center">
           <Grid item xs={12} md={6}>
+            <Typography
+              variant="h2"
+              component="h1"
+              fontSize={90}
+              sx={{ mb: 0, zIndex: 0, maxWidth: "100%" }}
+            >
+              {statics.COMPANY.TITLE}
+            </Typography>
+
             <Typography
               variant="h3"
               fontSize={20}
@@ -64,7 +89,7 @@ const Hero: React.FC = () => {
                 mb: 10,
               }}
             >
-              {content.cards.map((n: ServiceNav, index: number) => (
+              {content.cards.map((n: ServiceCardProps, index: number) => (
                 <Link
                   key={index}
                   href={n.linkNav}
@@ -77,14 +102,24 @@ const Hero: React.FC = () => {
                     maxWidth: "100%",
                   }}
                 >
-                  <Image
-                    src={n.imageSrc}
-                    alt={n.imageAlt}
-                    loading="lazy"
-                    width={isSmallScreen ? 16 : 24}
-                    height={24}
-                    style={{ borderRadius: "10%" }}
-                  />
+                  {/*  <Image
+                                   src={n.imageSrc}
+                                   alt={n.imageAlt}
+                                   loading="lazy"
+                                   width={isSmallScreen ? 16 : 24}
+                                   height={24}
+                                   style={{ borderRadius: "10%" }}
+                                 /> */}
+
+                  {createElement("lord-icon", {
+                    src: n.iconSrc,
+                    trigger: "in",
+                    delay: "1500",
+                    state: "in-reveal",
+                    colors: "primary:#e4e4e4,secondary:#7abf5a",
+                    style: { width: "50px", height: "50px" },
+                    alt: n.imageAlt,
+                  })}
                   <Typography
                     sx={{
                       fontFamily: "Raleway",
@@ -92,7 +127,7 @@ const Hero: React.FC = () => {
                       fontSize: { xs: "12px", md: "19px" },
                       lineHeight: { xs: "16px", md: "25px" },
                       letterSpacing: "1%",
-                      color: textColor,
+                      color: textColor2,
                       maxWidth: "100%",
                     }}
                     noWrap={false}
@@ -121,7 +156,6 @@ const Hero: React.FC = () => {
             </Link>
           </Grid>
 
-          {/* Columna de la imagen (derecha en pantallas md+) */}
           <Grid item xs={12} md={6}>
             <Image
               src="/assets/hero.png"
