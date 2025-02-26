@@ -1,23 +1,17 @@
 :root {
-  --background: #48733C;
+  --background: #48733c;
   --foreground: #171717;
-
-  
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #48733C;
+    --foreground: #48733c;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Exo, Arial, Helvetica, sans-serif;
-
+  font-family: var(--font-exo-sans), sans-serif;
 }
-
-
-
