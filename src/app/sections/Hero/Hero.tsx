@@ -86,6 +86,13 @@ const Hero: React.FC = () => {
             )}
           </Typography>
           <Grid item xs={12} md={6}>
+          <Typography
+              variant="h2"
+              fontSize={20}
+              sx={{ fontFamily: "Exo", color: theme.palette.success.main, mb: 4 }}
+            >
+              {statics.COMPANY.NAME}
+            </Typography>
             <Typography
               variant="h3"
               fontSize={20}
