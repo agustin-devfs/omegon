@@ -37,6 +37,7 @@ const Hero: React.FC = () => {
   };
   return (
     <Box
+    component="section"
       sx={{
         position: "relative",
         width: "100vw",
@@ -173,16 +174,7 @@ const Hero: React.FC = () => {
             />
           </Grid>
 
-          {/*  <Grid item xs={12} md={6}>
-            <Image
-              src="/assets/hero.png"
-              alt="Imagen hero"
-              width={600}
-              height={600}
-              loading="lazy"
-              style={{ width: "100%", height: "auto" }}
-            />
-          </Grid> */}
+         
         </Grid>
       </Container>
     </Box>
