@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
   ];
 
   const drawer = (
-    <Box sx={{ textAlign: "center" }}>
+    <Box sx={{ textAlign: "center", fontFamily: "Exo", }}>
       <Box
         display="flex"
         justifyContent="center"

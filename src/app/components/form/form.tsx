@@ -31,25 +31,26 @@ const Form: React.FC = () => {
         onChange={handleChange}
         fullWidth
         sx={{
-          borderRadius: 1,
+          borderRadius: 0,
           backgroundColor: "transparent",
-          // Color de la etiqueta
           "& .MuiInputLabel-root": {
             color: textColor,
           },
-          // Color del borde y estados hover/focus
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
-              borderColor: textColor,
+              // Quitamos el borde normal y dejamos solo el inferior
+              border: "none",
+              borderBottom: `2px solid ${textColor}`,
             },
             "&:hover fieldset": {
-              borderColor: textColor,
+              border: "none",
+              borderBottom: `2px solid ${textColor}`,
             },
             "&.Mui-focused fieldset": {
-              borderColor: textColor,
+              border: "none",
+              borderBottom: `2px solid ${textColor}`,
             },
           },
-          // Color del texto ingresado
           "& .MuiInputBase-input": {
             color: textColor,
           },
@@ -65,20 +66,24 @@ const Form: React.FC = () => {
         onChange={handleChange}
         fullWidth
         sx={{
-          borderRadius: 1,
+          borderRadius: 0,
           backgroundColor: "transparent",
           "& .MuiInputLabel-root": {
             color: textColor,
           },
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
-              borderColor: textColor,
+              // Quitamos el borde normal y dejamos solo el inferior
+              border: "none",
+              borderBottom: `2px solid ${textColor}`,
             },
             "&:hover fieldset": {
-              borderColor: textColor,
+              border: "none",
+              borderBottom: `2px solid ${textColor}`,
             },
             "&.Mui-focused fieldset": {
-              borderColor: textColor,
+              border: "none",
+              borderBottom: `2px solid ${textColor}`,
             },
           },
           "& .MuiInputBase-input": {
@@ -95,20 +100,24 @@ const Form: React.FC = () => {
         onChange={handleChange}
         fullWidth
         sx={{
-          borderRadius: 1,
+          borderRadius: 0,
           backgroundColor: "transparent",
           "& .MuiInputLabel-root": {
             color: textColor,
           },
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
-              borderColor: textColor,
+              // Quitamos el borde normal y dejamos solo el inferior
+              border: "none",
+              borderBottom: `2px solid ${textColor}`,
             },
             "&:hover fieldset": {
-              borderColor: textColor,
+              border: "none",
+              borderBottom: `2px solid ${textColor}`,
             },
             "&.Mui-focused fieldset": {
-              borderColor: textColor,
+              border: "none",
+              borderBottom: `2px solid ${textColor}`,
             },
           },
           "& .MuiInputBase-input": {
@@ -128,20 +137,24 @@ const Form: React.FC = () => {
         rows={4}
         fullWidth
         sx={{
-          borderRadius: 1,
+          borderRadius: 0,
           backgroundColor: "transparent",
           "& .MuiInputLabel-root": {
             color: textColor,
           },
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
-              borderColor: textColor,
+              // Quitamos el borde normal y dejamos solo el inferior
+              border: "none",
+              borderBottom: `2px solid ${textColor}`,
             },
             "&:hover fieldset": {
-              borderColor: textColor,
+              border: "none",
+              borderBottom: `2px solid ${textColor}`,
             },
             "&.Mui-focused fieldset": {
-              borderColor: textColor,
+              border: "none",
+              borderBottom: `2px solid ${textColor}`,
             },
           },
           "& .MuiInputBase-input": {
