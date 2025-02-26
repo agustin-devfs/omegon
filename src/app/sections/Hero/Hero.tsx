@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
             )}
           </Typography>
           <Grid item xs={12} md={6}>
-          <Typography
+            <Typography
               variant="h2"
               component="h2"
               fontSize={80}
@@ -133,8 +133,7 @@ const Hero: React.FC = () => {
                     state="in-reveal"
                     colors="primary:#e4e4e4,secondary:#7abf5a"
                     style={{ width: "90px", height: "90px" }}
-
-                 />
+                  />
                   <Typography
                     sx={{
                       fontFamily: "Exo",
@@ -163,8 +162,18 @@ const Hero: React.FC = () => {
               />
             </Box>
           </Grid>
-
           <Grid item xs={12} md={6}>
+            <Image
+              src="/assets/hero.png"
+              alt="Imagen hero"
+              width={600}
+              height={600}
+              priority // Carga la imagen lo antes posible
+              style={{ width: "100%", height: "auto" }}
+            />
+          </Grid>
+
+          {/*  <Grid item xs={12} md={6}>
             <Image
               src="/assets/hero.png"
               alt="Imagen hero"
@@ -173,7 +182,7 @@ const Hero: React.FC = () => {
               loading="lazy"
               style={{ width: "100%", height: "auto" }}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </Box>
