@@ -9,18 +9,14 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
 import Image from "next/image";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import DescriptionIcon from "@mui/icons-material/Description";
-import EmailIcon from "@mui/icons-material/Email";
 import CloseIcon from "@mui/icons-material/Close";
-import HomeIcon from "@mui/icons-material/Home";
-import { Instagram } from "@mui/icons-material";
 import { Typography, useTheme } from "@mui/material";
 import { statics } from "@/app/utils/statics";
+import LordIcon from "../iconos/LordIcon";
 
 interface MenuItem {
   text: string;
-  icon: React.ReactNode;
+  iconSrc: string;
   onClick: () => void;
 }
 
@@ -29,6 +25,7 @@ const Navbar: React.FC = () => {
 
   const backgroundColorOscuro = theme.palette.primary.main;
   const backgroundColorClaro = theme.palette.info.main;
+  const backgroundColorMedio = theme.palette.warning.main;
 
   const textColorOscuro = theme.palette.primary.main;
   const textColorClaro = theme.palette.info.main;
@@ -69,28 +66,28 @@ const Navbar: React.FC = () => {
   const menuItems: MenuItem[] = [
     {
       text: SECTIONS_TITLE.HOME,
-      icon: <HomeIcon />,
+      iconSrc:"https://cdn.lordicon.com/jeuxydnh.json",
       onClick: scrollToHero,
     },
     {
       text: SECTIONS_TITLE.SERVICES,
-      icon: <CalendarMonthIcon />,
+      iconSrc:"https://cdn.lordicon.com/gvtjlyjf.json",
       onClick: scrollToServices,
     },
     {
       text: SECTIONS_TITLE.ABOUT_US,
-      icon: <DescriptionIcon />,
+      iconSrc:"https://cdn.lordicon.com/tebysptx.json",
       onClick: scrollToAboutUs,
     },
     {
       text: SECTIONS_TITLE.CONTACT,
-      icon: <EmailIcon />,
+      iconSrc:"https://cdn.lordicon.com/vpbspaec.json",
       onClick: scrollToContact,
     },
 
     {
       text: "Instagram",
-      icon: <Instagram />,
+      iconSrc:"https://cdn.lordicon.com/tgyvxauj.json",
       onClick: () => window.open("/", "_blank"),
     },
   ];
@@ -168,10 +165,15 @@ const Navbar: React.FC = () => {
               borderBottom: "1px solid",
             }}
           >
-            {item.icon && (
-              <Box component="span" sx={{ marginRight: 2 }}>
-                {item.icon}
-              </Box>
+            {item.iconSrc && (
+                <LordIcon
+                src={item.iconSrc}
+                trigger="in"
+                delay="1500"
+                state="in-reveal"
+                colors= {`primary:${textColorClaro},secondary:${textColorOscuro}`}
+                style={{ width: "50px", height: "50px" }}
+              />
             )}
             <ListItemText primary={item.text} />
           </ListItemButton>
@@ -238,7 +240,7 @@ const Navbar: React.FC = () => {
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: { xs: "100%", sm: "25%" },
-            backgroundColor: backgroundColorClaro,
+            backgroundColor: backgroundColorMedio,
             overflow: "hidden",
           },
         }}

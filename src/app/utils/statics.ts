@@ -11,10 +11,12 @@ export const statics = {
 
   HOME_TITLE: "OMegon",
 
+
   NAV_ITEMS: [
     {
       item: "Inicio",
       link: "/",
+      iconSrc:"https://cdn.lordicon.com/jeuxydnh.json"
     },
     {
       item: "nuestros servicios",
