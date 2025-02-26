@@ -24,7 +24,7 @@ const ContactSection: React.FC = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const backgroundColor = theme.palette.info.main;
+  const backgroundColor = theme.palette.warning.main;
   const textColor = theme.palette.primary.main;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

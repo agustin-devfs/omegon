@@ -134,6 +134,7 @@ export default function AboutUs() {
                       alt={member.name}
                       width={200}
                       height={200}
+                      loading="lazy"
                       style={{
                         objectFit: "cover",
                         width: "100%",

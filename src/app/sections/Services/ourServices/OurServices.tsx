@@ -18,7 +18,7 @@ const ServicesSection = () => {
   const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
   const isLargeScreen = useMediaQuery(theme.breakpoints.down("xl"));
 
-  const Background = theme.palette.secondary.main;
+  const Background = theme.palette.success.main;
   const textColor = theme.palette.info.main;
 
   const scrollToContact = () => {

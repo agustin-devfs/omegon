@@ -129,7 +129,7 @@ const Hero: React.FC = () => {
                   <LordIcon
                     src={n.iconSrc}
                     trigger="in"
-                    delay="1500"
+                    delay="300"
                     state="in-reveal"
                     colors="primary:#e4e4e4,secondary:#7abf5a"
                     style={{ width: "90px", height: "90px" }}
