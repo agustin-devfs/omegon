@@ -169,10 +169,10 @@ const Navbar: React.FC = () => {
                 <LordIcon
                 src={item.iconSrc}
                 trigger="in"
-                delay="1500"
+                delay="200"
                 state="in-reveal"
                 colors= {`primary:${textColorClaro},secondary:${textColorOscuro}`}
-                style={{ width: "50px", height: "50px" }}
+                style={{ width: "40px", height: "40px" }}
               />
             )}
             <ListItemText primary={item.text} />
