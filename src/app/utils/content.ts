@@ -2,7 +2,6 @@ export const content = {
   Whatsapp_Text_Link: "hi!",
 
   cards: [
-   
     {
       title: "Desarrollo Web",
       description:
@@ -16,7 +15,7 @@ export const content = {
       title: "Desarrollo de Apps",
       description:
         "Crea aplicaciones que marquen la diferencia, fusionando tecnología y creatividad para experiencias únicas.",
-      iconSrc: "https://cdn.lordicon.com/rszslpey.json", // Gamma Icon
+      iconSrc: "https://cdn.lordicon.com/srupsmbe.json", // Alpha Icon
       imageSrc: "/assets/telefono.png",
       imageAlt: "Gamma",
       linkNav: "#services",
@@ -25,7 +24,7 @@ export const content = {
       title: "Diseño UX/UI",
       description:
         "Creamos experiencias intuitivas y atractivas que conectan con los usuarios y potencian tu marca.",
-      iconSrc: "https://cdn.lordicon.com/srupsmbe.json", // Alpha Icon
+      iconSrc: "https://cdn.lordicon.com/rszslpey.json", // Gamma Icon
       imageSrc: "/assets/tablet.png",
       imageAlt: "Alpha",
       linkNav: "#services",

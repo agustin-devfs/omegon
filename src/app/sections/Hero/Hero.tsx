@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
 
   const Background = theme.palette.success.main;
   const textColor = theme.palette.primary.main;
-  const textColor2 = theme.palette.info.main;
+  const textColorClaro = theme.palette.info.main;
 
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
       sx={{
         position: "relative",
         width: "100%",
-        height: "80vh",
+        height: "90vh",
         overflow: "hidden",
         py: { xs: 5, md: 15 },
       }}
@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
         sx={{
           position: "relative",
           zIndex: 1,
-          color: textColor2,
+          color: textColorClaro,
         }}
       >
         <Grid container spacing={1} alignItems="center">
@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
             variant="h1"
             component="h1"
             fontSize={80}
-            fontWeight={600}
+            fontWeight={300}
             fontFamily="Exo"
             sx={{ mb: 0, zIndex: 0, maxWidth: "100%" }}
           >
@@ -88,8 +88,11 @@ const Hero: React.FC = () => {
           <Grid item xs={12} md={6}>
           <Typography
               variant="h2"
-              fontSize={20}
-              sx={{ fontFamily: "Exo", color: theme.palette.success.main, mb: 4 }}
+              component="h2"
+              fontSize={80}
+              fontWeight={600}
+              fontFamily="Exo"
+              sx={{ fontFamily: "Exo", color: textColorClaro, mb: 4 }}
             >
               {statics.COMPANY.NAME}
             </Typography>
@@ -139,7 +142,7 @@ const Hero: React.FC = () => {
                       fontSize: { xs: "12px", md: "19px" },
                       lineHeight: { xs: "16px", md: "25px" },
                       letterSpacing: "1%",
-                      color: textColor2,
+                      color: textColorClaro,
                       maxWidth: "100%",
                     }}
                     noWrap={false}
@@ -154,7 +157,7 @@ const Hero: React.FC = () => {
               <ButtonCub
                 text={statics.COMPANY.BUTTON.NAME}
                 hovered={statics.COMPANY.BUTTON.NAME}
-                color_primary={textColor}
+                color_primary={textColorClaro}
                 color_secondary={Background}
                 size="3rem 8rem"
               />
