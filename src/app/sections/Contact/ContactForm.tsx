@@ -37,22 +37,21 @@ const ContactSection: React.FC = () => {
       sx={{
         backgroundColor: backgroundColor,
         color: textColor,
-        py: { xs: 8, md: 12 },
+        py: { xs: 2, md: 5 },
         px: { xs: 2, md: 4 },
       }}
     >
       <Container maxWidth="lg">
         {/* Contenedor principal en columna para colocar el título arriba y las dos columnas debajo */}
         <Grid container spacing={4} sx={{ flexDirection: "column" }}>
-          
           {/* Grid item para el título, centrado en toda la sección */}
           <Grid item xs={12}>
             <Typography
               variant="h3"
+              marginBottom={{ xs: 1, md: 2 }}
               sx={{
                 fontFamily: "Exo",
                 fontWeight: "bold",
-                mb: 2,
                 textAlign: "center", // Centramos el texto
               }}
             >
@@ -81,22 +80,22 @@ const ContactSection: React.FC = () => {
                   src="/assets/logos/logo_oscuro.png"
                   alt="LogoIcon"
                   loading="lazy"
-                  width={isSmallScreen ? 250 : 150}
-                  height={isSmallScreen ? 250 : 150}
+                  width={isSmallScreen ? 120 : 250}
+                  height={isSmallScreen ? 120 : 250}
                   style={{ borderRadius: "10%" }}
                 />
                 <Typography
                   variant="h1"
+                  fontSize={{ md: 80, xs: 70 }}
                   sx={{
                     fontWeight: "bold",
                     fontFamily: "Exo",
                     lineHeight: 1,
                     mt: 2,
-                    fontSize: { xs: "1rem", sm: "3rem", md: "7rem" },
                     textAlign: "center", // Centramos el texto
                   }}
                 >
-                  OMEGON
+                  {statics.COMPANY.NAME}
                 </Typography>
               </Box>
             </Grid>

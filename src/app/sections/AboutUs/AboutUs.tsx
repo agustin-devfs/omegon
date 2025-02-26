@@ -26,8 +26,9 @@ export default function AboutUs() {
       sx={{
         backgroundColor: backgroundColor,
         color: textColor,
-        py: { xs: 6, md: 12 },
-        px: { xs: 2, md: 6 },
+        pt: { xs: 2, md: 8 },
+        pb: { xs: 2, md: 4 },
+        px: { xs: 1, md: 6 },
         textAlign: "center",
       }}
     >
@@ -35,11 +36,11 @@ export default function AboutUs() {
         {/* Título principal */}
         <Typography
           variant="h2"
+          fontSize={{ md: 96, xs: 40 }}
           sx={{
             fontFamily: "Exo",
             fontWeight: "bold",
-            mb: 2,
-            fontSize: { xs: "2rem", md: "3rem" },
+            mb: 4,
           }}
         >
           {SECTIONS_TITLE.ABOUT_US}
@@ -47,13 +48,13 @@ export default function AboutUs() {
 
         {/* Subtítulo o texto breve */}
         <Typography
+          fontSize={{ md: 60, xs: 40 }}
           sx={{
             fontFamily: "Exo",
             fontWeight: 600,
-            fontSize: { xs: "12px", md: "52px" },
             lineHeight: { xs: "16px", md: "25px" },
             letterSpacing: "1%",
-            color: theme.palette.info.main,
+            color: textColor,
             mb: 4,
           }}
         >
@@ -61,10 +62,10 @@ export default function AboutUs() {
         </Typography>
 
         <Typography
+          fontSize={{ md: 20, xs: 18 }}
           sx={{
             fontFamily: "Exo",
             fontWeight: 600,
-            fontSize: { xs: "12px", md: "22px" },
             lineHeight: { xs: "16px", md: "25px" },
             letterSpacing: "1%",
             color: theme.palette.info.main,
@@ -75,12 +76,12 @@ export default function AboutUs() {
         </Typography>
 
         <Typography
+          fontSize={{ md: 20, xs: 18 }}
           sx={{
             fontFamily: "Exo",
-            fontWeight: 600,
-            fontSize: { xs: "12px", md: "22px" },
-            lineHeight: { xs: "16px", md: "25px" },
-            letterSpacing: "1%",
+            fontWeight: 400,
+            lineHeight: { xs: "20px", md: "25px" },
+            letterSpacing: "2%",
             color: theme.palette.info.main,
             mb: 4,
           }}
@@ -92,13 +93,13 @@ export default function AboutUs() {
         <Grid
           container
           justifyContent="space-evenly" // space-between
+          padding={{ xs: 0.5, md: 2 }}
           sx={{
             backgroundImage: "url('/assets/backgrounds/about-us.png')", // Ruta de la imagen
             backgroundSize: "cover", // Ajusta la imagen para que cubra el área
             backgroundPosition: "center", // Centra la imagen
             backgroundRepeat: "no-repeat", // Evita que se repita
             borderRadius: 5,
-            p: 4,
           }}
         >
           {teamMembers.map((member, index) => (
@@ -109,7 +110,7 @@ export default function AboutUs() {
                   border: "none", // Asegura que no haya borde
                   boxShadow: "none", // También elimina cualquier sombra que pueda parecer un borde
                   color: "white",
-                  p: 4,
+                  p: 2,
                   borderRadius: 2,
                 }}
               >

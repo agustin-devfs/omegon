@@ -1,4 +1,3 @@
-// components/Hero.tsx
 "use client";
 
 import React from "react";
@@ -13,7 +12,7 @@ import {
   Link,
 } from "@mui/material";
 import Image from "next/image";
-import ShaderCanvas from "@/app/sections/Hero/ShaderCanvas"; // Ajusta la ruta según tu estructura
+import ShaderCanvas from "@/app/sections/Hero/ShaderCanvas";
 import { statics } from "@/app/utils/statics";
 import { content } from "@/app/utils/content";
 import ButtonCub from "@/app/components/Buttons/Cub/buton";
@@ -35,44 +34,49 @@ const Hero: React.FC = () => {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <Box
-    component="section"
+      component="section"
       sx={{
         position: "relative",
         width: "100vw",
-        height: "100vh",
+        minHeight: "100vh", // Permite que crezca según el contenido
         overflow: "hidden",
-        py: { xs: 5, md: 15 },
+        py: { xs: "15vh", md: "18vh" },
+        display: "flex",
+        alignItems: "center",
       }}
     >
+      {/* Fondo con ShaderCanvas */}
       <Box
         sx={{
           position: "absolute",
           top: 0,
           left: 0,
-          width: "100vw",
-          height: "100vh",
+          width: "100%",
+          height: "100%",
           zIndex: 0,
         }}
       >
         <ShaderCanvas />
       </Box>
 
-      {/* Contenido de la sección Hero */}
+      {/* Contenido principal */}
       <Container
         maxWidth="lg"
         sx={{
           position: "relative",
           zIndex: 1,
           color: textColorClaro,
+          textAlign: { xs: "center", md: "left" }, // Centrado en móviles
         }}
       >
-        <Grid container spacing={1} alignItems="center">
+         <Grid container spacing={1} alignItems="center">
           <Typography
             variant="h1"
             component="h1"
-            fontSize={80}
+            fontSize={{md:80, xs:50}}
             fontWeight={300}
             fontFamily="Exo"
             sx={{ mb: 0, zIndex: 0, maxWidth: "100%" }}
@@ -90,16 +94,16 @@ const Hero: React.FC = () => {
             <Typography
               variant="h2"
               component="h2"
-              fontSize={80}
+              fontSize={{md:80, xs:70}}
               fontWeight={600}
               fontFamily="Exo"
-              sx={{ fontFamily: "Exo", color: textColorClaro, mb: 4 }}
+              sx={{ fontFamily: "Exo", color: textColorClaro, mb: 1 }}
             >
               {statics.COMPANY.NAME}
             </Typography>
             <Typography
               variant="h3"
-              fontSize={20}
+              fontSize={{md:20, xs:18}}
               sx={{ fontFamily: "Exo", color: "#FFFFFF", mb: 4 }}
             >
               {statics.COMPANY.TEXT}
@@ -108,10 +112,10 @@ const Hero: React.FC = () => {
             <Stack
               direction={isSmallScreen ? "column" : "row"}
               spacing={isSmallScreen ? 1 : isMediumScreen ? 3 : 4}
+              marginBottom={{md:10,xs:2}}
               sx={{
                 flexDirection: { xs: "column", sm: "row", md: "row" },
-                alignItems: { xs: "flex-start", sm: "center", md: "center" },
-                mb: 10,
+                alignItems: { xs: "center", sm: "center", md: "center" },
               }}
             >
               {content.cards.map((n: ServiceCardProps, index: number) => (

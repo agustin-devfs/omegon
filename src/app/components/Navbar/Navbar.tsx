@@ -140,10 +140,11 @@ const Navbar: React.FC = () => {
           />
 
           <Typography
+          fontSize={{ xs: 40, md: 52 }}
+          margin={{ xs: 1, md: 2 }}
             sx={{
               fontFamily: "Exo",
               fontWeight: 600,
-              fontSize: { xs: "12px", md: "52px" },
               lineHeight: { xs: "16px", md: "25px" },
               letterSpacing: "1%",
               color: textColorClaro,

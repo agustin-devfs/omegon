@@ -82,7 +82,7 @@ export default function Footer() {
                 <LordIcon
                   src={n.iconSrc}
                   trigger="in"
-                  delay="1500"
+                  delay="500"
                   state="in-reveal"
                   colors="primary:#e4e4e4,secondary:#7abf5a"
                   style={{ width: "50px", height: "50px" }}

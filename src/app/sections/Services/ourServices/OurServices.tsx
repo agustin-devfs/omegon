@@ -34,7 +34,7 @@ const ServicesSection = () => {
         // Fondo verde muy oscuro (primary.main)
         backgroundColor: Background,
         color: textColor,
-        py: { xs: 0.5, md: 1 },
+        py: { xs: 0.5, md: 2 },
       }}
     >
       <Container
@@ -42,7 +42,7 @@ const ServicesSection = () => {
         sx={{
           backgroundColor: Background,
           mt: 1,
-          mb: isLargeScreen ? 2 : 4,
+          mb: isLargeScreen ? 2 : 2,
         }}
       >
         {/* Título */}
@@ -51,19 +51,14 @@ const ServicesSection = () => {
             <Typography
               variant="h2"
               component="h1"
+              fontSize={{ md: 96, xs: 40 }}
+              lineHeight={{md:2,xs:2}}
+              marginTop={{md:0,xs:0}}
               sx={{
-                mt: isLargeScreen ? 0 : 10,
                 fontFamily: "Exo",
                 color: theme.palette.info.main,
-                fontWeight: 400,
-                fontSize: isSmallScreen
-                  ? "30px"
-                  : isMediumScreen
-                  ? "68px"
-                  : isLargeScreen
-                  ? "80px"
-                  : "96px",
-                lineHeight: isSmallScreen ? "56px" : "96px",
+                fontWeight: 600,
+               
                 textAlign: "center",
               }}
             >
@@ -75,7 +70,7 @@ const ServicesSection = () => {
         {/* Tarjetas */}
         <Grid
           container
-          spacing={isSmallScreen ? 0 : isMediumScreen ? 1 : 4}
+          spacing={{md:2,xs:1}}
           justifyContent="center"
           flexDirection={"column"}
           alignItems={"center"}
@@ -83,8 +78,8 @@ const ServicesSection = () => {
           {content.cards.map((card, index) => (
             <Grid
               item
-              xs={4}
-              sm={10}
+              xs={12}
+              sm={12}
               md={12}
               key={index}
               sx={{
@@ -108,7 +103,7 @@ const ServicesSection = () => {
 
         {/* Botón */}
         <Box
-          mt={isLargeScreen ? 1 : 10}
+          marginTop={{md:2,xs:2}}
           textAlign="center"
           onClick={scrollToContact}
         >
@@ -117,6 +112,7 @@ const ServicesSection = () => {
             hovered={statics.COMPANY.BUTTON.NAME}
             color_primary={Background}
             color_secondary={textColor}
+            size="5rem 10rem"
           />
         </Box>
       </Container>
