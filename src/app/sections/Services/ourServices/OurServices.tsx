@@ -3,8 +3,6 @@ import {
   Box,
   Typography,
   Container,
-  //Button,
-  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import { statics } from "@/app/utils/statics";
@@ -14,9 +12,6 @@ import CardServices from "@/app/components/Cards/cardService/CardServices";
 
 const ServicesSection = () => {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
-  const isLargeScreen = useMediaQuery(theme.breakpoints.down("xl"));
 
   const Background = theme.palette.success.main;
   const textColor = theme.palette.info.main;
@@ -42,7 +37,7 @@ const ServicesSection = () => {
         sx={{
           backgroundColor: Background,
           mt: 1,
-          mb: isLargeScreen ? 2 : 2,
+          mb: 2,
         }}
       >
         {/* Título */}

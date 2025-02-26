@@ -8,7 +8,7 @@ interface ButtonProps {
   hovered: string;
   color_primary: string;
   color_secondary: string;
-  size?: any;
+  size?: string;
 }
 
 const ButtonCub: React.FC<ButtonProps> = ({
