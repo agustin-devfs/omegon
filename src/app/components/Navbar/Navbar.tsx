@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
   const theme = useTheme();
 
   const backgroundColorOscuro = theme.palette.primary.main;
-  const backgroundColorClaro = theme.palette.info.main;
+ // const backgroundColorClaro = theme.palette.info.main;
   const backgroundColorMedio = theme.palette.warning.main;
 
   const textColorOscuro = theme.palette.primary.main;
