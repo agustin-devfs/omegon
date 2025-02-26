@@ -16,7 +16,6 @@ import Image from "next/image";
 import { statics } from "@/app/utils/statics";
 import { content } from "@/app/utils/content";
 import { ServiceCardProps } from "@/app/components/Cards/cardService/CardService";
-import { createElement } from "react";
 import LordIcon from "@/app/components/iconos/LordIcon";
 
 export default function Footer() {
