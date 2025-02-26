@@ -93,7 +93,7 @@ export default function AboutUs() {
           container
           justifyContent="space-evenly" // space-between
           sx={{
-            backgroundImage: "url('/assets/backgrounds/hero.png')", // Ruta de la imagen
+            backgroundImage: "url('/assets/backgrounds/about-us.png')", // Ruta de la imagen
             backgroundSize: "cover", // Ajusta la imagen para que cubra el área
             backgroundPosition: "center", // Centra la imagen
             backgroundRepeat: "no-repeat", // Evita que se repita

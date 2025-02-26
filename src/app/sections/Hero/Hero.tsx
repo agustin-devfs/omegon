@@ -39,8 +39,8 @@ const Hero: React.FC = () => {
     <Box
       sx={{
         position: "relative",
-        width: "100%",
-        height: "90vh",
+        width: "100vw",
+        height: "100vh",
         overflow: "hidden",
         py: { xs: 5, md: 15 },
       }}
@@ -50,8 +50,8 @@ const Hero: React.FC = () => {
           position: "absolute",
           top: 0,
           left: 0,
-          width: "100%",
-          height: "100%",
+          width: "100vw",
+          height: "100vh",
           zIndex: 0,
         }}
       >

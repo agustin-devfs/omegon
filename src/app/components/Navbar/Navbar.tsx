@@ -184,7 +184,7 @@ const Navbar: React.FC = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
-        sx={{ backgroundColor: backgroundColorOscuro, height: "60px" }}
+        sx={{ backgroundColor: backgroundColorOscuro, height: "70px" }}
       >
         <Toolbar sx={{ height: "100%", minHeight: "unset" }}>
           <IconButton
