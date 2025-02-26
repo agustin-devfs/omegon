@@ -1,7 +1,7 @@
 // components/Hero.tsx
 "use client";
 
-import React, { createElement } from "react";
+import React from "react";
 import {
   Box,
   Typography,
@@ -18,6 +18,7 @@ import { statics } from "@/app/utils/statics";
 import { content } from "@/app/utils/content";
 import ButtonCub from "@/app/components/Buttons/Cub/buton";
 import { ServiceCardProps } from "@/app/components/Cards/cardService/CardService";
+import LordIcon from "@/app/components/iconos/LordIcon";
 
 const Hero: React.FC = () => {
   const theme = useTheme();
@@ -115,24 +116,15 @@ const Hero: React.FC = () => {
                     maxWidth: "100%",
                   }}
                 >
-                  {/*  <Image
-                                   src={n.imageSrc}
-                                   alt={n.imageAlt}
-                                   loading="lazy"
-                                   width={isSmallScreen ? 16 : 24}
-                                   height={24}
-                                   style={{ borderRadius: "10%" }}
-                                 /> */}
+                  <LordIcon
+                    src={n.iconSrc}
+                    trigger="in"
+                    delay="1500"
+                    state="in-reveal"
+                    colors="primary:#e4e4e4,secondary:#7abf5a"
+                    style={{ width: "90px", height: "90px" }}
 
-                  {createElement("lord-icon", {
-                    src: n.iconSrc,
-                    trigger: "in",
-                    delay: "1500",
-                    state: "in-reveal",
-                    colors: "primary:#e4e4e4,secondary:#7abf5a",
-                    style: { width: "50px", height: "50px" },
-                    alt: n.imageAlt,
-                  })}
+                 />
                   <Typography
                     sx={{
                       fontFamily: "Exo",

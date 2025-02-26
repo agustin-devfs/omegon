@@ -1,15 +1,15 @@
-'use client'  // Importante para que este Layout sea un Client Component
+"use client"; // Importante para que este Layout sea un Client Component
 
-import { ReactNode } from 'react'
-import { ThemeProvider } from '@mui/material/styles'
-import CssBaseline from '@mui/material/CssBaseline'
+import { ReactNode } from "react";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import Script from "next/script";
 
-import { Exo } from "next/font/google";
 import "./globals.css";
-import theme from '@/app/theme/index'
+import theme from "@/app/theme/index";
 
 interface RootLayoutProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
@@ -21,8 +21,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <title>OMegon</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+         <link
+          href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet"
+        /> 
+        <Script
+          src="https://cdn.lordicon.com/bhenfmcm.js"
+          strategy="afterInteractive"
+        />
       </head>
       <body>
         <ThemeProvider theme={theme}>
@@ -31,5 +42,5 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

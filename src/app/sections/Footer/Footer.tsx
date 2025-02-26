@@ -17,6 +17,7 @@ import { statics } from "@/app/utils/statics";
 import { content } from "@/app/utils/content";
 import { ServiceCardProps } from "@/app/components/Cards/cardService/CardService";
 import { createElement } from "react";
+import LordIcon from "@/app/components/iconos/LordIcon";
 
 export default function Footer() {
   const theme = useTheme();
@@ -77,24 +78,16 @@ export default function Footer() {
                   gap: 0.5,
                 }}
               >
-                {/*  <Image
-                  src={n.imageSrc}
-                  alt={n.imageAlt}
-                  loading="lazy"
-                  width={isSmallScreen ? 16 : 24}
-                  height={24}
-                  style={{ borderRadius: "10%" }}
-                /> */}
+               
 
-                {createElement("lord-icon", {
-                  src: n.iconSrc,
-                  trigger: "in",
-                  delay: "1500",
-                  state: "in-reveal",
-                  colors: "primary:#e4e4e4,secondary:#7abf5a",
-                  style: { width: "50px", height: "50px" },
-                  alt: n.imageAlt,
-                })}
+                <LordIcon
+                  src={n.iconSrc}
+                  trigger="in"
+                  delay="1500"
+                  state="in-reveal"
+                  colors="primary:#e4e4e4,secondary:#7abf5a"
+                  style={{ width: "50px", height: "50px" }}
+                />
                 <Typography
                   sx={{
                     fontFamily: "Exo",
@@ -174,7 +167,10 @@ export default function Footer() {
               >
                 {statics.FOOTER.privacy}
               </Link>
-              <Typography variant="body2" sx={{ fontFamily: "Exo", opacity: 0.7 }}>
+              <Typography
+                variant="body2"
+                sx={{ fontFamily: "Exo", opacity: 0.7 }}
+              >
                 {statics.FOOTER.ALL_RIGHTS_RESERVED}
               </Typography>
             </Stack>
