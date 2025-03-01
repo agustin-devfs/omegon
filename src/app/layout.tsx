@@ -22,7 +22,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         {/* Meta básico para codificación de caracteres */}
         <meta charSet="UTF-8" />
@@ -30,32 +30,32 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {/* Compatibilidad con IE */}
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-        {/* Título de la página */}
-        <title>OMegon</title>
+        {/* Título de la página - Aparece en pestañas y búsqueda */}
+        <title>OMEGON</title>
 
         {/* Preconexión para mejorar la carga de fuentes */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
         {/* ----- Mejoras de SEO ----- */}
-        {/* Meta descripción para SEO */}
-        <meta name="description" content="Software Company" />
-        {/* Meta keywords (opcional, algunos motores ya no lo usan) */}
-        <meta name="keywords" content="OMegon, tecnología, Software Company, Disign, " />
+        {/* Meta descripción para mejorar posicionamiento en buscadores */}
+        <meta name="description" content="Diseñamos con propósito, desarrollamos con precisión." />
+        {/* Meta keywords (algunos motores no lo usan, pero ayuda en SEO inicial) */}
+        <meta name="keywords" content="Tecnología, UX/UI, Desarrollo Web, Software, IA, Transformación Digital" />
 
         {/* ----- Etiquetas Open Graph para compartir en redes sociales ----- */}
-        <meta property="og:title" content="OMegon" />
-        <meta property="og:description" content="Software Company" />
-        {/* Ruta o URL de la imagen para la miniatura; reemplaza '/path/to/your/thumbnail.jpg' por la ruta real */}
-        <meta property="og:image" content="/assets/logo/logo_oscuro" />
+        <meta property="og:title" content="OMEGON" />
+        <meta property="og:description" content="Diseñamos con propósito, desarrollamos con precisión." />
+        {/* Ruta absoluta para que redes sociales la reconozcan correctamente */}
+        <meta property="og:image" content="https://omegon.com.ar/assets/logo_omegon.jpg" />
         <meta property="og:url" content="https://omegon.com.ar" />
         <meta property="og:type" content="website" />
 
         {/* ----- Etiquetas para Twitter Card ----- */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="OMegon" />
-        <meta name="twitter:description" content="Breve descripción que se mostrará al compartir en Twitter, resaltando la miniatura y el contenido de la página." />
-        <meta name="twitter:image" content="/path/to/your/thumbnail.jpg" />
+        <meta name="twitter:title" content="OMEGON" />
+        <meta name="twitter:description" content="Diseñamos con propósito, desarrollamos con precisión." />
+        <meta name="twitter:image" content="https://omegon.com.ar/assets/logo_omegon.jpg" />
 
         {/* Carga del script externo para los íconos de Lordicon */}
         <Script src="https://cdn.lordicon.com/bhenfmcm.js" strategy="afterInteractive" />
