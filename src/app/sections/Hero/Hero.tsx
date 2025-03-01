@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
         width: "100vw",
         minHeight: "100vh", // Permite que crezca según el contenido
         overflow: "hidden",
-        py: { xs: "15vh", md: "18vh" },
+        py: { xs: "15vh", md: "2vh" },
         display: "flex",
         alignItems: "center",
       }}
@@ -73,6 +73,16 @@ const Hero: React.FC = () => {
         }}
       >
          <Grid container spacing={1} alignItems="center">
+         <Typography
+              variant="h2"
+              component="h2"
+              fontSize={{md:30, xs:30}}
+              fontWeight={600}
+              fontFamily="Exo"
+              sx={{ fontFamily: "Exo", color: textColorClaro, mb: 1 }}
+            >
+              {statics.COMPANY.NAME}
+            </Typography>
           <Typography
             variant="h1"
             component="h1"
@@ -91,19 +101,12 @@ const Hero: React.FC = () => {
             )}
           </Typography>
           <Grid item xs={12} md={6}>
-            <Typography
-              variant="h2"
-              component="h2"
-              fontSize={{md:80, xs:70}}
-              fontWeight={600}
-              fontFamily="Exo"
-              sx={{ fontFamily: "Exo", color: textColorClaro, mb: 1 }}
-            >
-              {statics.COMPANY.NAME}
-            </Typography>
+            
             <Typography
               variant="h3"
               fontSize={{md:20, xs:18}}
+              fontWeight={500}
+              lineHeight={1.25}
               sx={{ fontFamily: "Exo", color: "#FFFFFF", mb: 4 }}
             >
               {statics.COMPANY.TEXT}

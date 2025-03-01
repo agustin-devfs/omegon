@@ -86,7 +86,7 @@ export default function AboutUs() {
             mb: 4,
           }}
         >
-          {COMPANY.TEXT}
+          {COMPANY.ABOUTUS}
         </Typography>
 
         {/* Grilla de miembros del equipo */}

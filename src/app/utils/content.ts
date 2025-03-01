@@ -5,7 +5,7 @@ export const content = {
     {
       title: "Desarrollo Web",
       description:
-        "Convierte tu visión en una plataforma web poderosa, combinando innovación y estrategia para alcanzar el éxito digital.",
+        "Llevamos tu visión al mundo digital con plataformas web sólidas, innovadoras y estratégicas, diseñadas para impulsar tu crecimiento.",
       iconSrc: "https://cdn.lordicon.com/ogjpwrxe.json", // Omega Icon
       imageSrc: "/assets/notebook.png",
       imageAlt: "Omega",
@@ -14,7 +14,7 @@ export const content = {
     {
       title: "Desarrollo de Apps",
       description:
-        "Crea aplicaciones que marquen la diferencia, fusionando tecnología y creatividad para experiencias únicas.",
+        "Creamos aplicaciones a medida que combinan tecnología y creatividad, ofreciendo soluciones eficientes y adaptadas a las necesidades del mercado.",
       iconSrc: "https://cdn.lordicon.com/srupsmbe.json", // Alpha Icon
       imageSrc: "/assets/telefono.png",
       imageAlt: "Gamma",
@@ -23,7 +23,7 @@ export const content = {
     {
       title: "Diseño UX/UI",
       description:
-        "Creamos experiencias intuitivas y atractivas que conectan con los usuarios y potencian tu marca.",
+        "Diseñamos experiencias intuitivas y atractivas que generan conexión con los usuarios y potencian la identidad de tu marca.",
       iconSrc: "https://cdn.lordicon.com/rszslpey.json", // Gamma Icon
       imageSrc: "/assets/tablet.png",
       imageAlt: "Alpha",
@@ -35,13 +35,13 @@ export const content = {
     {
       name: "Agustin Rodriguez",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Profesional con mas de 10 años de experiencia en el manejo de proyectos, especializado en desarrollo de software y tecnología. ",
       image: "/assets/images/agus.jpg",
     },
     {
       name: "Eugenia Galleguillo",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Licenciada en Comunicación y apasionada por el diseño gráfico, encuentro en la creatividad una forma de dar vida a ideas y conectar con las personas a través de lo visual.",
       image: "/assets/images/euge.jpg",
     },
   ],
