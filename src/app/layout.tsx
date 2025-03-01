@@ -47,7 +47,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta property="og:title" content="OMEGON" />
         <meta property="og:description" content="Diseñamos con propósito, desarrollamos con precisión." />
         {/* Ruta absoluta para que redes sociales la reconozcan correctamente */}
-        <meta property="og:image" content="https://omegon.com.ar/assets/logo_omegon.jpg" />
+        <meta property="og:image" content="https://omegon.com.ar/assets/logos/logo_omegon.jpg" />
         <meta property="og:url" content="https://omegon.com.ar" />
         <meta property="og:type" content="website" />
 
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="OMEGON" />
         <meta name="twitter:description" content="Diseñamos con propósito, desarrollamos con precisión." />
-        <meta name="twitter:image" content="https://omegon.com.ar/assets/logo_omegon.jpg" />
+        <meta name="twitter:image" content="https://omegon.com.ar/assets/logos/logo_omegon.jpg" />
 
         {/* Carga del script externo para los íconos de Lordicon */}
         <Script src="https://cdn.lordicon.com/bhenfmcm.js" strategy="afterInteractive" />
