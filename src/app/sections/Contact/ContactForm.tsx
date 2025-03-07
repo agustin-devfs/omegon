@@ -57,6 +57,39 @@ const ContactSection: React.FC = () => {
     },
   });
 
+
+  const getTextFieldStyle = () => ({
+    borderRadius: 0,
+    backgroundColor: "transparent",
+    marginBottom: theme.spacing(2),
+    "& .MuiInputLabel-root": {
+      color: textColor,
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        border: "none",
+        borderBottom: `2px solid ${textColor}`,
+      },
+      "&:hover fieldset": {
+        border: "none",
+        borderBottom: `2px solid ${textColor}`,
+      },
+      "&.Mui-focused fieldset": {
+        border: "none",
+        borderBottom: `2px solid ${textColor}`,
+      },
+      "&.Mui-error fieldset": {
+        borderBottom: `2px solid ${theme.palette.error.main}`,
+      },
+    },
+    "& .MuiInputBase-input": {
+      color: textColor,
+    },
+    "& .MuiFormHelperText-root": {
+      color: theme.palette.error.main,
+    },
+  });
+
   return (
     <Box
       component="section"
@@ -127,32 +160,20 @@ const ContactSection: React.FC = () => {
                     required
                     label="Nombre"
                     fullWidth
-                    sx={{
-                      borderTopRightRadius: 0,
-                      borderTopLeftRadius: 0,
-                      m: 1,
-                    }}
+                    sx={{...getTextFieldStyle()}}
                     {...formik.getFieldProps("name")}
                   />
                   <TextField
                     required
                     label="Email"
                     fullWidth
-                    sx={{
-                      borderTopRightRadius: 0,
-                      borderTopLeftRadius: 0,
-                      m: 1,
-                    }}
+                    sx={{...getTextFieldStyle()}}
                     {...formik.getFieldProps("email")}
                   />
                   <TextField
                     label="Teléfono"
                     fullWidth
-                    sx={{
-                      borderTopRightRadius: 0,
-                      borderTopLeftRadius: 0,
-                      m: 1,
-                    }}
+                    sx={{...getTextFieldStyle()}}
                     {...formik.getFieldProps("phone")}
                   />
                   <TextField
@@ -161,11 +182,7 @@ const ContactSection: React.FC = () => {
                     multiline
                     rows={4}
                     fullWidth
-                    sx={{
-                      borderTop: 0,
-                      border: 0,
-                      m: 1,
-                    }}
+                    sx={{...getTextFieldStyle()}}
                     {...formik.getFieldProps("message")}
                   />
                   <Box mt={1} textAlign="center">
