@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import {
   Box,
   Container,
@@ -16,10 +16,14 @@ import * as Yup from "yup";
 import sendEmail from "@/app/services/emailjs";
 import ButtonCub from "@/app/components/Buttons/Cub/buton";
 import { statics } from "@/app/utils/statics";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("El nombre es obligatorio"),
-  email: Yup.string().email("Email inválido").required("El email es obligatorio"),
+  email: Yup.string()
+    .email("Email inválido")
+    .required("El email es obligatorio"),
   phone: Yup.string().matches(/^[0-9\s+\-()]*$/, "Número de teléfono inválido"),
   message: Yup.string().required("El mensaje es obligatorio"),
 });
@@ -30,12 +34,6 @@ const ContactSection: React.FC = () => {
   const backgroundColor = theme.palette.warning.main;
   const textColor = theme.palette.primary.main;
   const formRef = useRef<HTMLFormElement>(null);
-
-  const [submitStatus, setSubmitStatus] = useState({
-    success: false,
-    error: false,
-    message: "",
-  });
 
   const formik = useFormik({
     initialValues: {
@@ -48,14 +46,12 @@ const ContactSection: React.FC = () => {
     onSubmit: (values, { resetForm, setSubmitting }) => {
       sendEmail(formRef.current)
         .then((success) => {
-          setSubmitStatus({
-            success,
-            error: !success,
-            message: success
-              ? "¡Mensaje enviado con éxito!"
-              : "Error al enviar el mensaje. Inténtalo de nuevo.",
-          });
-          if (success) resetForm();
+          if (success) {
+            toast.success("¡Mensaje enviado con éxito!");
+            resetForm();
+          } else {
+            toast.error("Error al enviar el mensaje. Inténtalo de nuevo.");
+          }
         })
         .finally(() => setSubmitting(false));
     },
@@ -77,7 +73,11 @@ const ContactSection: React.FC = () => {
             <Typography
               variant="h3"
               marginBottom={{ xs: 1, md: 2 }}
-              sx={{ fontFamily: "Exo", fontWeight: "bold", textAlign: "center" }}
+              sx={{
+                fontFamily: "Exo",
+                fontWeight: "bold",
+                textAlign: "center",
+              }}
             >
               {statics.SECTIONS_TITLE.CONTACT}
             </Typography>
@@ -127,17 +127,32 @@ const ContactSection: React.FC = () => {
                     required
                     label="Nombre"
                     fullWidth
+                    sx={{
+                      borderTopRightRadius: 0,
+                      borderTopLeftRadius: 0,
+                      m: 1,
+                    }}
                     {...formik.getFieldProps("name")}
                   />
                   <TextField
                     required
                     label="Email"
                     fullWidth
+                    sx={{
+                      borderTopRightRadius: 0,
+                      borderTopLeftRadius: 0,
+                      m: 1,
+                    }}
                     {...formik.getFieldProps("email")}
                   />
                   <TextField
                     label="Teléfono"
                     fullWidth
+                    sx={{
+                      borderTopRightRadius: 0,
+                      borderTopLeftRadius: 0,
+                      m: 1,
+                    }}
                     {...formik.getFieldProps("phone")}
                   />
                   <TextField
@@ -146,18 +161,13 @@ const ContactSection: React.FC = () => {
                     multiline
                     rows={4}
                     fullWidth
+                    sx={{
+                      borderTop: 0,
+                      border: 0,
+                      m: 1,
+                    }}
                     {...formik.getFieldProps("message")}
                   />
-                  {submitStatus.message && (
-                    <Typography
-                      color={submitStatus.success ? "success.main" : "error.main"}
-                      variant="body2"
-                      align="center"
-                      sx={{ mb: 2 }}
-                    >
-                      {submitStatus.message}
-                    </Typography>
-                  )}
                   <Box mt={1} textAlign="center">
                     <ButtonCub
                       text="Enviar"
@@ -174,6 +184,11 @@ const ContactSection: React.FC = () => {
           </Grid>
         </Grid>
       </Container>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar
+      />
     </Box>
   );
 };
