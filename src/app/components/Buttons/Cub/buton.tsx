@@ -9,6 +9,8 @@ interface ButtonProps {
   color_primary: string;
   color_secondary: string;
   size?: string;
+  type?: string;
+  onClick?: () => void;
 }
 
 const ButtonCub: React.FC<ButtonProps> = ({
