@@ -13,7 +13,7 @@ import {
 import Image from "next/image";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import emailjs from "@emailjs/browser";
+import sendEmail from "@/app/services/emailjs";
 import ButtonCub from "@/app/components/Buttons/Cub/buton";
 import { statics } from "@/app/utils/statics";
 
@@ -29,18 +29,7 @@ const ContactSection: React.FC = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const backgroundColor = theme.palette.warning.main;
   const textColor = theme.palette.primary.main;
-
-  // Define el ref del formulario como HTMLFormElement
   const formRef = useRef<HTMLFormElement>(null);
-
-  // Variables de entorno
-  const SERVICE_ID = process.env.NEXT_PUBLIC_SERVICE_ID;
-  const TEMPLATE_ID = process.env.NEXT_PUBLIC_TEMPLATE_ID;
-  const PUBLIC_KEY = process.env.NEXT_PUBLIC_PUBLIC_KEY;
-
-  console.log("SERVICE_ID:", SERVICE_ID);
-  console.log("TEMPLATE_ID:", TEMPLATE_ID);
-  console.log("PUBLIC_KEY:", PUBLIC_KEY);
 
   const [submitStatus, setSubmitStatus] = useState({
     success: false,
@@ -57,47 +46,16 @@ const ContactSection: React.FC = () => {
     },
     validationSchema,
     onSubmit: (values, { resetForm, setSubmitting }) => {
-      console.log("Formulario enviado con valores:", values);
-      console.log("Enviando con:", {
-        serviceID: SERVICE_ID,
-        templateID: TEMPLATE_ID,
-        publicKey: PUBLIC_KEY,
-        values: {
-          from_name: values.name,
-          from_email: values.email,
-          from_phone: values.phone,
-          message: values.message,
-        },
-      });
-
-      emailjs
-        .send(
-          SERVICE_ID || "",
-          TEMPLATE_ID || "",
-          {
-            from_name: values.name,
-            from_email: values.email,
-            from_phone: values.phone,
-            message: values.message,
-          },
-          PUBLIC_KEY
-        )
-        .then((response) => {
-          console.log("Email enviado:", response);
+      sendEmail(formRef.current)
+        .then((success) => {
           setSubmitStatus({
-            success: true,
-            error: false,
-            message: "¡Mensaje enviado con éxito!",
+            success,
+            error: !success,
+            message: success
+              ? "¡Mensaje enviado con éxito!"
+              : "Error al enviar el mensaje. Inténtalo de nuevo.",
           });
-          resetForm();
-        })
-        .catch((error) => {
-          console.error("Error al enviar email:", error);
-          setSubmitStatus({
-            success: false,
-            error: true,
-            message: "Error al enviar el mensaje. Inténtalo de nuevo.",
-          });
+          if (success) resetForm();
         })
         .finally(() => setSubmitting(false));
     },
@@ -200,22 +158,17 @@ const ContactSection: React.FC = () => {
                       {submitStatus.message}
                     </Typography>
                   )}
+                  <Box mt={1} textAlign="center">
+                    <ButtonCub
+                      text="Enviar"
+                      hovered="Enviar"
+                      color_primary={textColor}
+                      color_secondary={backgroundColor}
+                      size="2rem 5rem"
+                      type="submit"
+                    />
+                  </Box>
                 </form>
-                <Box mt={1} textAlign="center">
-                  <ButtonCub
-                    text="Enviar"
-                    hovered="Enviar"
-                    color_primary={textColor}
-                    color_secondary={backgroundColor}
-                    size="2rem 5rem"
-                    type="submit"
-                    onClick={() =>
-                      formRef.current?.dispatchEvent(
-                        new Event("submit", { cancelable: true, bubbles: true })
-                      )
-                    }
-                  />
-                </Box>
               </Box>
             </Grid>
           </Grid>
