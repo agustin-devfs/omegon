@@ -190,7 +190,7 @@ const ContactSection: React.FC = () => {
                       text="Enviar"
                       hovered="Enviar"
                       color_primary={textColor}
-                      color_secondary={backgroundColor}
+                      color_secondary={"#EDF252"}
                       size="2rem 5rem"
                       type="submit"
                     />
