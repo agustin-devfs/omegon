@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
         width: "100vw",
         minHeight: "100vh", // Permite que crezca según el contenido
         overflow: "hidden",
-        py: { xs: "15vh", md: "2vh" },
+        py: { xs: "15vh", md: "15vh" },
         display: "flex",
         alignItems: "center",
       }}
