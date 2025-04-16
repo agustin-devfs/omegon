@@ -159,6 +159,7 @@ const ContactSection: React.FC = () => {
                   <TextField
                     required
                     label="Nombre"
+                    id="name"
                     fullWidth
                     sx={{...getTextFieldStyle()}}
                     {...formik.getFieldProps("name")}
@@ -166,12 +167,14 @@ const ContactSection: React.FC = () => {
                   <TextField
                     required
                     label="Email"
+                    id="email"
                     fullWidth
                     sx={{...getTextFieldStyle()}}
                     {...formik.getFieldProps("email")}
                   />
                   <TextField
                     label="Teléfono"
+                    id="phone"
                     fullWidth
                     sx={{...getTextFieldStyle()}}
                     {...formik.getFieldProps("phone")}
@@ -179,6 +182,7 @@ const ContactSection: React.FC = () => {
                   <TextField
                     required
                     label="Mensaje"
+                    id="message"
                     multiline
                     rows={4}
                     fullWidth
