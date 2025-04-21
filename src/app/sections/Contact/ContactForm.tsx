@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   Box,
   Container,
@@ -9,6 +9,8 @@ import {
   TextField,
   useTheme,
   useMediaQuery,
+  Dialog,
+  DialogContent,
 } from "@mui/material";
 import Image from "next/image";
 import { useFormik } from "formik";
@@ -18,13 +20,18 @@ import ButtonCub from "@/app/components/Buttons/Cub/buton";
 import { statics } from "@/app/utils/statics";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
+import CalendlyModal from "@/app/components/Calendly/CalendyModal";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("El nombre es obligatorio"),
   email: Yup.string()
-    .email("Email inválido")
+    .email("Email inv\u00e1lido")
     .required("El email es obligatorio"),
-  phone: Yup.string().matches(/^[0-9\s+\-()]*$/, "Número de teléfono inválido"),
+  phone: Yup.string().matches(
+    /^[0-9\s+\-()]*$/,
+    "N\u00famero de tel\u00e9fono inv\u00e1lido"
+  ),
   message: Yup.string().required("El mensaje es obligatorio"),
 });
 
@@ -34,6 +41,8 @@ const ContactSection: React.FC = () => {
   const backgroundColor = theme.palette.warning.main;
   const textColor = theme.palette.primary.main;
   const formRef = useRef<HTMLFormElement>(null);
+  const [openCalendly, setOpenCalendly] = useState(false);
+  const calendlyUrl="https://calendly.com/omegon-info/30min"
 
   const formik = useFormik({
     initialValues: {
@@ -47,16 +56,15 @@ const ContactSection: React.FC = () => {
       sendEmail(formRef.current)
         .then((success) => {
           if (success) {
-            toast.success("¡Mensaje enviado con éxito!");
+            toast.success("\u00a1Mensaje enviado con \u00e9xito!");
             resetForm();
           } else {
-            toast.error("Error al enviar el mensaje. Inténtalo de nuevo.");
+            toast.error("Error al enviar el mensaje. Int\u00e9ntalo de nuevo.");
           }
         })
         .finally(() => setSubmitting(false));
     },
   });
-
 
   const getTextFieldStyle = () => ({
     borderRadius: 0,
@@ -153,6 +161,7 @@ const ContactSection: React.FC = () => {
                 </Typography>
               </Box>
             </Grid>
+
             <Grid item xs={12} md={6}>
               <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                 <form ref={formRef} onSubmit={formik.handleSubmit}>
@@ -161,7 +170,7 @@ const ContactSection: React.FC = () => {
                     label="Nombre"
                     id="name"
                     fullWidth
-                    sx={{...getTextFieldStyle()}}
+                    sx={{ ...getTextFieldStyle() }}
                     {...formik.getFieldProps("name")}
                   />
                   <TextField
@@ -169,14 +178,14 @@ const ContactSection: React.FC = () => {
                     label="Email"
                     id="email"
                     fullWidth
-                    sx={{...getTextFieldStyle()}}
+                    sx={{ ...getTextFieldStyle() }}
                     {...formik.getFieldProps("email")}
                   />
                   <TextField
-                    label="Teléfono"
+                    label="Tel\u00e9fono"
                     id="phone"
                     fullWidth
-                    sx={{...getTextFieldStyle()}}
+                    sx={{ ...getTextFieldStyle() }}
                     {...formik.getFieldProps("phone")}
                   />
                   <TextField
@@ -186,25 +195,84 @@ const ContactSection: React.FC = () => {
                     multiline
                     rows={4}
                     fullWidth
-                    sx={{...getTextFieldStyle()}}
+                    sx={{ ...getTextFieldStyle() }}
                     {...formik.getFieldProps("message")}
                   />
-                  <Box mt={1} textAlign="center">
+                  <Box
+                    mt={1}
+                    textAlign="center"
+                    display="flex"
+                    flexDirection="column"
+                    gap={2}
+                    alignItems="center"
+                  >
                     <ButtonCub
                       text="Enviar"
                       hovered="Enviar"
                       color_primary={textColor}
-                      color_secondary={"#EDF252"}
+                      color_secondary="#EDF252"
                       size="2rem 5rem"
                       type="submit"
                     />
                   </Box>
                 </form>
+
+                {/* BOT\u00d3N para abrir modal Calendly */}
+                <Box mt={4} textAlign="center">
+                  <button
+                    onClick={() => setOpenCalendly(true)}
+                    style={{
+                      padding: "1rem 2rem",
+                      fontFamily: "Exo",
+                      fontSize: "1rem",
+                      fontWeight: "bold",
+                      border: `2px solid ${textColor}`,
+                      backgroundColor: "transparent",
+                      color: textColor,
+                      borderRadius: "8px",
+                      cursor: "pointer",
+                      transition: "all 0.3s",
+                    }}
+                  >
+                    Agenda tu cita
+                  </button>
+                </Box>
               </Box>
             </Grid>
           </Grid>
         </Grid>
       </Container>
+
+      {/* MODAL Calendly */}
+      <Dialog
+        open={openCalendly}
+        onClose={() => setOpenCalendly(false)}
+        fullWidth
+        maxWidth="md"
+        
+          style={
+           { 
+            backgroundColor: "transparent",
+            boxShadow: "none",
+            overflow: "hidden",
+            
+            }
+          }
+        
+        BackdropProps={{
+          sx: {
+            backdropFilter: "blur(8px)",
+            backgroundColor: "rgba(0,0,0,0.4)",
+          },
+        }}
+      >
+          <CalendlyModal
+            open={openCalendly}
+            onClose={() => setOpenCalendly(false)}
+            calendlyUrl={calendlyUrl}
+          />
+      </Dialog>
+
       <ToastContainer
         position="bottom-right"
         autoClose={3000}
