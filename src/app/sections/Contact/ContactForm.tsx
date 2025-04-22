@@ -10,7 +10,6 @@ import {
   useTheme,
   useMediaQuery,
   Dialog,
-  DialogContent,
 } from "@mui/material";
 import Image from "next/image";
 import { useFormik } from "formik";
@@ -51,18 +50,20 @@ const ContactSection: React.FC = () => {
       message: "",
     },
     validationSchema,
-    onSubmit: (values, { resetForm, setSubmitting }) => {
-      sendEmail(formRef.current)
-        .then((success) => {
-          if (success) {
-            toast.success("¡Mensaje enviado con éxito!");
-            resetForm();
-          } else {
-            toast.error("Error al enviar el mensaje. Inténtalo de nuevo.");
-          }
-        })
-        .finally(() => setSubmitting(false));
-    },
+    onSubmit: async (values, { resetForm, setSubmitting }) => {
+      const success = await sendEmail(formRef.current);
+    
+      if (success) {
+        toast.success("¡Mensaje enviado con éxito!");
+       
+        resetForm();
+      } else {
+        toast.error("Error al enviar el mensaje. Inténtalo de nuevo.");
+      }
+    
+      setSubmitting(false);
+    }
+    
   });
 
   const getTextFieldStyle = () => ({
@@ -219,6 +220,7 @@ const ContactSection: React.FC = () => {
                 {/* BOTON para abrir modal Calendly */}
                 <Box mt={4} textAlign="center">
                   <button
+                  type="button"
                     onClick={() => setOpenCalendly(true)}
                     style={{
                       padding: "1rem 2rem",
