@@ -20,17 +20,16 @@ import ButtonCub from "@/app/components/Buttons/Cub/buton";
 import { statics } from "@/app/utils/statics";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { motion } from "framer-motion";
 import CalendlyModal from "@/app/components/Calendly/CalendyModal";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("El nombre es obligatorio"),
   email: Yup.string()
-    .email("Email inv\u00e1lido")
+    .email("Email inválido")
     .required("El email es obligatorio"),
   phone: Yup.string().matches(
     /^[0-9\s+\-()]*$/,
-    "N\u00famero de tel\u00e9fono inv\u00e1lido"
+    "Numero de telefono invalido"
   ),
   message: Yup.string().required("El mensaje es obligatorio"),
 });
@@ -56,10 +55,10 @@ const ContactSection: React.FC = () => {
       sendEmail(formRef.current)
         .then((success) => {
           if (success) {
-            toast.success("\u00a1Mensaje enviado con \u00e9xito!");
+            toast.success("¡Mensaje enviado con éxito!");
             resetForm();
           } else {
-            toast.error("Error al enviar el mensaje. Int\u00e9ntalo de nuevo.");
+            toast.error("Error al enviar el mensaje. Inténtalo de nuevo.");
           }
         })
         .finally(() => setSubmitting(false));
@@ -182,7 +181,7 @@ const ContactSection: React.FC = () => {
                     {...formik.getFieldProps("email")}
                   />
                   <TextField
-                    label="Tel\u00e9fono"
+                    label="Telefono"
                     id="phone"
                     fullWidth
                     sx={{ ...getTextFieldStyle() }}
@@ -217,7 +216,7 @@ const ContactSection: React.FC = () => {
                   </Box>
                 </form>
 
-                {/* BOT\u00d3N para abrir modal Calendly */}
+                {/* BOTON para abrir modal Calendly */}
                 <Box mt={4} textAlign="center">
                   <button
                     onClick={() => setOpenCalendly(true)}
