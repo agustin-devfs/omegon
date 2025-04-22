@@ -38,7 +38,7 @@ export default function CalendlyModal({
             transition={{ duration: 0.6 }}
             style={{
               position: "fixed",
-              top: "10%",
+              top: "5%",
               left: "30%",
               transform: "translate(-50%, 0)",
               zIndex: 1300,

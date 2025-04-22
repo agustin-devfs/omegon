@@ -26,10 +26,7 @@ const validationSchema = Yup.object({
   email: Yup.string()
     .email("Email inválido")
     .required("El email es obligatorio"),
-  phone: Yup.string().matches(
-    /^[0-9\s+\-()]*$/,
-    "Numero de telefono invalido"
-  ),
+  phone: Yup.string().matches(/^[0-9\s+\-()]*$/, "Numero de telefono invalido"),
   message: Yup.string().required("El mensaje es obligatorio"),
 });
 
@@ -40,7 +37,7 @@ const ContactSection: React.FC = () => {
   const textColor = theme.palette.primary.main;
   const formRef = useRef<HTMLFormElement>(null);
   const [openCalendly, setOpenCalendly] = useState(false);
-  const calendlyUrl="https://calendly.com/omegon-info/30min"
+  const calendlyUrl = "https://calendly.com/omegon-info/30min";
 
   const formik = useFormik({
     initialValues: {
@@ -52,18 +49,17 @@ const ContactSection: React.FC = () => {
     validationSchema,
     onSubmit: async (values, { resetForm, setSubmitting }) => {
       const success = await sendEmail(formRef.current);
-    
+
       if (success) {
         toast.success("¡Mensaje enviado con éxito!");
-       
+
         resetForm();
       } else {
         toast.error("Error al enviar el mensaje. Inténtalo de nuevo.");
       }
-    
+
       setSubmitting(false);
-    }
-    
+    },
   });
 
   const getTextFieldStyle = () => ({
@@ -113,7 +109,7 @@ const ContactSection: React.FC = () => {
           <Grid item xs={12}>
             <Typography
               variant="h3"
-              marginBottom={{ xs: 1, md: 2 }}
+              marginBottom={{ xs: 1, md: 1 }}
               sx={{
                 fontFamily: "Exo",
                 fontWeight: "bold",
@@ -220,15 +216,15 @@ const ContactSection: React.FC = () => {
                 {/* BOTON para abrir modal Calendly */}
                 <Box mt={4} textAlign="center">
                   <button
-                  type="button"
+                    type="button"
                     onClick={() => setOpenCalendly(true)}
                     style={{
-                      padding: "1rem 2rem",
+                      padding: ".75rem 1rem",
                       fontFamily: "Exo",
-                      fontSize: "1rem",
-                      fontWeight: "bold",
+                      fontSize: "1.2rem",
+                      fontWeight: "500",
                       border: `2px solid ${textColor}`,
-                      backgroundColor: "transparent",
+                      backgroundColor: theme.palette.info.main,
                       color: textColor,
                       borderRadius: "8px",
                       cursor: "pointer",
@@ -250,16 +246,11 @@ const ContactSection: React.FC = () => {
         onClose={() => setOpenCalendly(false)}
         fullWidth
         maxWidth="md"
-        
-          style={
-           { 
-            backgroundColor: "transparent",
-            boxShadow: "none",
-            overflow: "hidden",
-            
-            }
-          }
-        
+        style={{
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          overflow: "hidden",
+        }}
         BackdropProps={{
           sx: {
             backdropFilter: "blur(8px)",
@@ -267,11 +258,11 @@ const ContactSection: React.FC = () => {
           },
         }}
       >
-          <CalendlyModal
-            open={openCalendly}
-            onClose={() => setOpenCalendly(false)}
-            calendlyUrl={calendlyUrl}
-          />
+        <CalendlyModal
+          open={openCalendly}
+          onClose={() => setOpenCalendly(false)}
+          calendlyUrl={calendlyUrl}
+        />
       </Dialog>
 
       <ToastContainer
