@@ -16,7 +16,7 @@ export default function CalendlyModal({
 }) {
   const theme = useTheme();
   const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
-
+  const isNormalScreen = useMediaQuery(theme.breakpoints.down("lg"));
   return (
     <AnimatePresence>
       {open && (
@@ -39,14 +39,14 @@ export default function CalendlyModal({
             style={{
               position: "fixed",
               top: "1%",
-              left: "35%",
+              left: isNormalScreen ? "1%" : "35%",
               transform: "translate(-50%, 0)",
               zIndex: 1300,
               background: "#fff",
               borderRadius: "12px",
               padding: "0",
               width: isMediumScreen ? "90%" : "30%",
-              height: "100%",
+              height: isNormalScreen? "80%" : "95%",
               overflow: "hidden",
               boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
               display: "flex",
