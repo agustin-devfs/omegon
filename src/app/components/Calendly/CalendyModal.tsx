@@ -46,7 +46,7 @@ export default function CalendlyModal({
               borderRadius: "12px",
               padding: "0",
               width: isMediumScreen ? "90%" : "35%",
-              height: "840px",
+              height: "50rem",
               overflow: "hidden",
               boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
               display: "flex",
