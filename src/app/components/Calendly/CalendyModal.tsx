@@ -38,31 +38,35 @@ export default function CalendlyModal({
             transition={{ duration: 0.6 }}
             style={{
               position: "fixed",
-              top: "5%",
-              left: "30%",
+              top: "1%",
+              left: "35%",
               transform: "translate(-50%, 0)",
               zIndex: 1300,
               background: "#fff",
               borderRadius: "12px",
               padding: "0",
-              width: isMediumScreen ? "90%" : "35%",
-              height: "70rem",
-/*               overflow: "hidden",
- */              boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
+              width: isMediumScreen ? "90%" : "30%",
+              height: "100%",
+              overflow: "hidden",
+              boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
               display: "flex",
               flexDirection: "column",
             }}
           >
             <IconButton
               onClick={onClose}
-              sx={{ position: "absolute", top: 10, left: 10, zIndex: 2 }}
+              sx={{ position: "absolute", top: 10, right: 10, zIndex: 2 }}
             >
               <CloseIcon />
             </IconButton>
 
             <InlineWidget
               url={calendlyUrl}
-              styles={{ flex: 1, border: "none", borderRadius: "0 0 12px 12px" }}
+              styles={{
+                flex: 1,
+                border: "none",
+                borderRadius: "0 0 12px 12px",
+              }}
               pageSettings={{
                 hideEventTypeDetails: false,
                 hideLandingPageDetails: false,
