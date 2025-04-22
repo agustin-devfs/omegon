@@ -47,8 +47,8 @@ export default function CalendlyModal({
               padding: "0",
               width: isMediumScreen ? "90%" : "35%",
               height: "60rem",
-              overflow: "hidden",
-              boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
+/*               overflow: "hidden",
+ */              boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
               display: "flex",
               flexDirection: "column",
             }}
