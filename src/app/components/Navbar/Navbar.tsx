@@ -25,9 +25,9 @@ const Navbar: React.FC = () => {
 
   const backgroundColorOscuro = theme.palette.primary.main;
  // const backgroundColorClaro = theme.palette.info.main;
-  const backgroundColorMedio = theme.palette.warning.main;
+  const backgroundColorMedio = theme.palette.primary.main;
 
-  const textColorOscuro = theme.palette.primary.main;
+  const textColorOscuro = theme.palette.warning.main;
   const textColorClaro = theme.palette.info.main;
 
   const { SECTIONS_TITLE, COMPANY } = statics;
@@ -114,7 +114,7 @@ const Navbar: React.FC = () => {
             cursor: "pointer",
             color: textColorClaro,
             padding: "16px",
-            backgroundColor: textColorOscuro,
+            backgroundColor: backgroundColorMedio,
           }}
         >
           <CloseIcon onClick={toggleDrawer(false)} />
@@ -124,7 +124,7 @@ const Navbar: React.FC = () => {
           justifyContent="space-between"
           alignItems="center"
           alignContent={"center"}
-          sx={{ cursor: "pointer", backgroundColor: textColorOscuro }}
+          sx={{ cursor: "pointer", backgroundColor: backgroundColorMedio }}
         >
           <Image
             src={"/assets/logos/logo_claro.png"}
@@ -155,32 +155,42 @@ const Navbar: React.FC = () => {
           </Typography>
         </Box>
       </Box>
-      <List sx={{ padding: "0px" }} onClick={toggleDrawer(false)}>
-        {menuItems.map((item, index) => (
-          <ListItemButton
-            key={index}
-            onClick={item.onClick}
-            sx={{
-              color: textColorOscuro,
-              border: "1px solid",
-              borderBottom: "1px solid",
-            }}
-          >
-            {item.iconSrc && (
-                <LordIcon
-                src={item.iconSrc}
-                trigger="in"
-                delay="200"
-                state="in-reveal"
-                colors= {`primary:${textColorClaro},secondary:${textColorOscuro}`}
-                style={{ width: "40px", height: "40px" }}
-                
-              />
-            )}
-            <ListItemText primary={item.text} />
-          </ListItemButton>
-        ))}
-      </List>
+      <List sx={{ p: 0 }} onClick={toggleDrawer(false)}>
+  {menuItems.map((item, index) => (
+    <ListItemButton
+      key={index}
+      onClick={item.onClick}
+      sx={{ color: textColorOscuro, mb: 1, ml: 0.5 }}
+    >
+      {item.iconSrc && (
+        <LordIcon
+          src={item.iconSrc}
+          trigger="in"
+          delay="200"
+          state="in-reveal"
+          colors={`primary:${textColorClaro},secondary:${textColorOscuro}`}
+          style={{ width: 40, height: 40 }}
+        />
+      )}
+
+      <ListItemText
+        primary={item.text}
+        primaryTypographyProps={{
+          sx: {
+            fontFamily: "Exo, sans-serif",
+            fontSize: "1.3rem",      // ↔ 24px; ajústalo a tu gusto
+            fontWeight: 600,
+            ml: 1,                   // margen izquierdo
+            lineHeight: 1.2,
+            letterSpacing: "0.05em",
+           color:textColorClaro
+          },
+        }}
+      />
+    </ListItemButton>
+  ))}
+</List>
+
     </Box>
   );
 
