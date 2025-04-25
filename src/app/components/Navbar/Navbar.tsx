@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
   const theme = useTheme();
 
   const backgroundColorOscuro = theme.palette.primary.main;
- // const backgroundColorClaro = theme.palette.info.main;
+  // const backgroundColorClaro = theme.palette.info.main;
   const backgroundColorMedio = theme.palette.primary.main;
 
   const textColorOscuro = theme.palette.warning.main;
@@ -66,132 +66,130 @@ const Navbar: React.FC = () => {
   const menuItems: MenuItem[] = [
     {
       text: SECTIONS_TITLE.HOME,
-      iconSrc:"https://cdn.lordicon.com/jeuxydnh.json",
+      iconSrc: "https://cdn.lordicon.com/jeuxydnh.json",
       onClick: scrollToHero,
     },
     {
       text: SECTIONS_TITLE.SERVICES,
-      iconSrc:"https://cdn.lordicon.com/gvtjlyjf.json",
+      iconSrc: "https://cdn.lordicon.com/gvtjlyjf.json",
       onClick: scrollToServices,
     },
     {
       text: SECTIONS_TITLE.ABOUT_US,
-      iconSrc:"https://cdn.lordicon.com/tebysptx.json",
+      iconSrc: "https://cdn.lordicon.com/tebysptx.json",
       onClick: scrollToAboutUs,
     },
     {
       text: SECTIONS_TITLE.CONTACT,
-      iconSrc:"https://cdn.lordicon.com/vpbspaec.json",
+      iconSrc: "https://cdn.lordicon.com/vpbspaec.json",
       onClick: scrollToContact,
     },
 
     {
       text: "Instagram",
-      iconSrc:"https://cdn.lordicon.com/tgyvxauj.json",
+      iconSrc: "https://cdn.lordicon.com/tgyvxauj.json",
       onClick: () => window.open("/", "_blank"),
     },
   ];
 
   const drawer = (
-    <Box sx={{ textAlign: "center", fontFamily: "Exo", }}>
+    <Box sx={{ textAlign: "center", fontFamily: "Exo" }}>
       <Box
         display="flex"
-        justifyContent="center"
         alignItems="center"
+        justifyContent="center"
         sx={{
-          cursor: "pointer",
-          padding: "10px",
           position: "relative",
           backgroundColor: backgroundColorOscuro,
+          p: "20px",
+          cursor: "pointer",
         }}
       >
-        <Box
+        {/* Close Icon absoluto a la izquierda */}
+        <IconButton
+          onClick={toggleDrawer(false)}
           sx={{
             position: "absolute",
-            left: 0,
-            top: "50%",
-            transform: "translateY(-50%)",
-            cursor: "pointer",
+            left: 3, // ajusta a tu gusto
             color: textColorClaro,
-            padding: "16px",
             backgroundColor: backgroundColorMedio,
+            "&:hover": { backgroundColor: backgroundColorMedio },
           }}
         >
-          <CloseIcon onClick={toggleDrawer(false)} />
+          <CloseIcon />
+        </IconButton>
+        <Box sx={{ margin: 2 }}>
+          " "
         </Box>
+        {/* Logo + Nombre centrados */}
         <Box
           display="flex"
-          justifyContent="space-between"
           alignItems="center"
-          alignContent={"center"}
-          sx={{ cursor: "pointer", backgroundColor: backgroundColorMedio, margin: "auto" }}
+          gap={1}
+          sx={{
+            backgroundColor: backgroundColorMedio,
+            p: "8px 20px",
+            borderRadius: 1,
+          }}
         >
           <Image
-            src={"/assets/logos/logo_claro.png"}
+            src="/assets/logos/logo_claro.png"
             width={50}
             height={50}
             alt="Omegon"
-            style={{
-              minHeight: "40px",
-              maxHeight: "55px",
-              maxWidth: "60px",
-              top: "50%",
-              left: "55%",
-            }}
+            style={{ minHeight: 40, maxHeight: 55, maxWidth: 60 }}
           />
-
           <Typography
-          fontSize={{ xs: 40, md: 52 }}
-          margin={{ xs: 1, md: 2 }}
+            fontSize={{ xs: 40, md: 52 }}
             sx={{
-              fontFamily: "Exo",
+              fontFamily: "Exo, sans-serif",
               fontWeight: 600,
               lineHeight: { xs: "16px", md: "20px" },
               letterSpacing: "1%",
               color: textColorClaro,
-              mb: 0,
+              m: 0,
             }}
           >
             {COMPANY.NAME}
           </Typography>
         </Box>
       </Box>
+
       <List sx={{ p: 0 }} onClick={toggleDrawer(false)}>
-  {menuItems.map((item, index) => (
-    <ListItemButton
-      key={index}
-      onClick={item.onClick}
-      sx={{ color: textColorOscuro, mb: 1, ml: 0.5 }}
-    >
-      {item.iconSrc && (
-        <LordIcon
-          src={item.iconSrc}
-          trigger="in"
-          delay="200"
-          state="in-reveal"
-          colors={`primary:${textColorClaro},secondary:${textColorOscuro}`}
-          style={{ width: 40, height: 40 }}
-        />
-      )}
+        {menuItems.map((item, index) => (
+          <ListItemButton
+            key={index}
+            onClick={item.onClick}
+            sx={{ color: textColorOscuro, mb: 1, ml: 0.5 }}
+          >
+            {item.iconSrc && (
+              <LordIcon
+                src={item.iconSrc}
+                trigger="in"
+                delay="200"
+                state="in-reveal"
+                colors={`primary:${textColorClaro},secondary:${textColorOscuro}`}
+                style={{ width: 40, height: 40 }}
+              />
+            )}
 
-      <ListItemText
-        primary={item.text}
-        primaryTypographyProps={{
-          sx: {
-            fontFamily: "Exo, sans-serif",
-            fontSize: "1.3rem",      // ↔ 24px; ajústalo a tu gusto
-            fontWeight: 600,
-            ml: 1,                   // margen izquierdo
-            lineHeight: 1.2,
-            letterSpacing: "0.05em",
-           color:textColorClaro
-          },
-        }}
-      />
-    </ListItemButton>
-  ))}
-</List>
-
+            <ListItemText
+              primary={item.text}
+              primaryTypographyProps={{
+                sx: {
+                  fontFamily: "Exo, sans-serif",
+                  fontSize: "1.3rem", // ↔ 24px; ajústalo a tu gusto
+                  fontWeight: 600,
+                  ml: 1, // margen izquierdo
+                  lineHeight: 1.2,
+                  letterSpacing: "0.05em",
+                  color: textColorClaro,
+                },
+              }}
+            />
+          </ListItemButton>
+        ))}
+      </List>
     </Box>
   );
 
