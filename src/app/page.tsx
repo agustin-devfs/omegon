@@ -8,6 +8,7 @@ import ServicesSection from "./sections/Services/ourServices/OurServices";
 import Footer from "./sections/Footer/Footer";
 import AboutUs from "./sections/AboutUs/AboutUs";
 import ContactForm from "./sections/Contact/ContactForm";
+import ServicesloveSection from "./sections/Services/ourServices/services";
 
 const Home: NextPage = () => {
   return (
@@ -17,9 +18,14 @@ const Home: NextPage = () => {
         <Hero />
       </section>
 
-      <section id="services">
+      {/* <section id="services">
         <ServicesSection />
-      </section>
+      </section> */}
+
+   <section id="services">
+        <ServicesloveSection />
+      </section> 
+
 
       <section id="aboutus">
         <AboutUs />

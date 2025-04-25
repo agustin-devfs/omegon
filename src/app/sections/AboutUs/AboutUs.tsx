@@ -46,7 +46,7 @@ export default function AboutUs() {
         {/* Títulos */}
         <Typography
           variant="h2"
-          fontSize={{ md: 96, xs: 40 }}
+          fontSize={{ md: 80, xs: 40 }}
           sx={{ fontFamily: "Exo", fontWeight: "bold", mb: 4 }}
         >
           {SECTIONS_TITLE.ABOUT_US}

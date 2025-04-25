@@ -33,8 +33,8 @@ const validationSchema = Yup.object({
 const ContactSection: React.FC = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const backgroundColor = theme.palette.success.main;
-  const textColor = theme.palette.primary.main;
+  const backgroundColor = theme.palette.primary.main;
+  const textColor = theme.palette.info.main;
   const formRef = useRef<HTMLFormElement>(null);
   const [openCalendly, setOpenCalendly] = useState(false);
   const calendlyUrl = "https://calendly.com/omegon-info/30min";
@@ -136,7 +136,7 @@ const ContactSection: React.FC = () => {
                 justifyContent="center"
               >
                 <Image
-                  src="/assets/logos/logo_oscuro.png"
+                  src="/assets/logos/logo_claro.png"
                   alt="LogoIcon"
                   loading="lazy"
                   width={isSmallScreen ? 120 : 250}
@@ -206,7 +206,7 @@ const ContactSection: React.FC = () => {
                     <ButtonCub
                       text="Enviar"
                       hovered="Enviar"
-                      color_primary={textColor}
+                      color_primary={theme.palette.success.main}
                       color_secondary="#EDF252"
                       size="2rem 5rem"
                       type="submit"
@@ -225,7 +225,7 @@ const ContactSection: React.FC = () => {
                       fontSize: "1.2rem",
                       fontWeight: "500",
                       border: `2px solid ${textColor}`,
-                      backgroundColor: theme.palette.info.main,
+                      backgroundColor: theme.palette.success.main,
                       color: textColor,
                       borderRadius: "8px",
                       cursor: "pointer",
