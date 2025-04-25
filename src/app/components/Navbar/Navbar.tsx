@@ -124,7 +124,7 @@ const Navbar: React.FC = () => {
           justifyContent="space-between"
           alignItems="center"
           alignContent={"center"}
-          sx={{ cursor: "pointer", backgroundColor: backgroundColorMedio }}
+          sx={{ cursor: "pointer", backgroundColor: backgroundColorMedio, margin: "auto" }}
         >
           <Image
             src={"/assets/logos/logo_claro.png"}
@@ -136,6 +136,7 @@ const Navbar: React.FC = () => {
               maxHeight: "55px",
               maxWidth: "60px",
               top: "50%",
+              left: "55%",
             }}
           />
 
@@ -145,7 +146,7 @@ const Navbar: React.FC = () => {
             sx={{
               fontFamily: "Exo",
               fontWeight: 600,
-              lineHeight: { xs: "16px", md: "25px" },
+              lineHeight: { xs: "16px", md: "20px" },
               letterSpacing: "1%",
               color: textColorClaro,
               mb: 0,
