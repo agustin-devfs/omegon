@@ -13,7 +13,6 @@ import {
 import Image from "next/image";
 import { content } from "@/app/utils/content";
 import { statics } from "@/app/utils/statics";
-import ShaderCanvas from "../Hero/ShaderCanvas";
 
 // Carga dinámica para evitar SSR del Canvas
 const BackgroundShader = dynamic(

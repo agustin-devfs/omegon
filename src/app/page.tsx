@@ -4,7 +4,6 @@ import React from "react";
 import type { NextPage } from "next";
 import Navbar from "@/app/components/Navbar/Navbar";
 import Hero from "@/app/sections/Hero/Hero";
-import ServicesSection from "./sections/Services/ourServices/OurServices";
 import Footer from "./sections/Footer/Footer";
 import AboutUs from "./sections/AboutUs/AboutUs";
 import ContactForm from "./sections/Contact/ContactForm";
