@@ -119,7 +119,6 @@ const Navbar: React.FC = () => {
           <CloseIcon />
         </IconButton>
         <Box sx={{ margin: 2 }}>
-          " "
         </Box>
         {/* Logo + Nombre centrados */}
         <Box
