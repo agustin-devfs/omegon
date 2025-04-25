@@ -39,7 +39,7 @@ export default function CalendlyModal({
             style={{
               position: "fixed",
               top: "1%",
-              left: isNormalScreen ? "1%" : "35%",
+              left: isNormalScreen ? "5%" : "35%",
               transform: "translate(-50%, 0)",
               zIndex: 1300,
               background: "#fff",

@@ -33,7 +33,7 @@ const validationSchema = Yup.object({
 const ContactSection: React.FC = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const backgroundColor = theme.palette.warning.main;
+  const backgroundColor = theme.palette.success.main;
   const textColor = theme.palette.primary.main;
   const formRef = useRef<HTMLFormElement>(null);
   const [openCalendly, setOpenCalendly] = useState(false);
@@ -93,6 +93,7 @@ const ContactSection: React.FC = () => {
       color: theme.palette.error.main,
     },
   });
+
 
   return (
     <Box
