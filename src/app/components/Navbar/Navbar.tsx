@@ -13,14 +13,18 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Typography, useTheme } from "@mui/material";
 import { statics } from "@/app/utils/statics";
 import LordIcon from "../iconos/LordIcon";
+import { useRouter } from "next/navigation";
 
 interface MenuItem {
   text: string;
   iconSrc: string;
   onClick: () => void;
 }
+interface NavbarProps {
+  page: string;
+}
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<NavbarProps> = ({ page }) => {
   const theme = useTheme();
 
   const backgroundColorOscuro = theme.palette.primary.main;
@@ -38,6 +42,9 @@ const Navbar: React.FC = () => {
     setDrawerOpen(open);
   };
 
+ const router = useRouter();
+
+
   const scrollToHero = () => {
     const HeroSection = document.getElementById("hero");
     if (HeroSection) {
@@ -50,12 +57,18 @@ const Navbar: React.FC = () => {
       HeroSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-  const scrollToAboutUs = () => {
-    const HeroSection = document.getElementById("aboutus");
-    if (HeroSection) {
-      HeroSection.scrollIntoView({ behavior: "smooth" });
+ const scrollToAboutUs = (page: string) => {
+
+  if (page === "home") {
+    const aboutUsSection = document.getElementById("aboutus");
+    if (aboutUsSection) {
+      aboutUsSection.scrollIntoView({ behavior: "smooth" });
     }
-  };
+  } else {
+    // Redirige a home con anchor
+    router.push("/#aboutus");
+  }
+};
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -77,7 +90,7 @@ const Navbar: React.FC = () => {
     {
       text: SECTIONS_TITLE.ABOUT_US,
       iconSrc: "https://cdn.lordicon.com/tebysptx.json",
-      onClick: scrollToAboutUs,
+      onClick: () => scrollToAboutUs(page),
     },
     {
       text: SECTIONS_TITLE.CONTACT,
@@ -88,7 +101,7 @@ const Navbar: React.FC = () => {
     {
       text: "Instagram",
       iconSrc: "https://cdn.lordicon.com/tgyvxauj.json",
-      onClick: () => window.open("/", "_blank"),
+      onClick: () => window.open("https://www.instagram.com/omegon.studio?igsh=MTY5ejQ1dDZwZnlzMg==", "_blank"),
     },
   ];
 

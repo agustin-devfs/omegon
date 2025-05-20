@@ -118,7 +118,7 @@ export default function Footer() {
               justifyContent={isSmallScreen ? "center" : "flex-start"}
             >
               <IconButton
-                href="/"
+                href="https://www.instagram.com/omegon.studio?igsh=MTY5ejQ1dDZwZnlzMg=="
                 size="small"
                 sx={{ color: textColor }}
                 target="_blank"
@@ -128,7 +128,7 @@ export default function Footer() {
                 <Instagram />
               </IconButton>
               <IconButton
-                href="/"
+                href="https://www.linkedin.com/company/omegon-studio"
                 size="small"
                 sx={{ color: textColor }}
                 target="_blank"

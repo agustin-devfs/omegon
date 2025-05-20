@@ -19,7 +19,11 @@ import ButtonCub from "@/app/components/Buttons/Cub/buton";
 import { ServiceCardProps } from "@/app/components/Cards/cardService/CardService";
 import LordIcon from "@/app/components/iconos/LordIcon";
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  page: string;
+}
+
+const Hero: React.FC<HeroProps> = ({ page }) => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -72,6 +76,8 @@ const Hero: React.FC = () => {
           textAlign: { xs: "center", md: "left" }, // Centrado en móviles
         }}
       >
+
+       
          <Grid container spacing={1} alignItems="center">
          <Typography
               variant="h2"
@@ -100,6 +106,8 @@ const Hero: React.FC = () => {
                 )
             )}
           </Typography>
+
+           {page === "home" ?
           <Grid item xs={12} md={6}>
             
             <Typography
@@ -169,7 +177,9 @@ const Hero: React.FC = () => {
                 size="3rem 8rem"
               />
             </Box>
-          </Grid>
+          </Grid>: null }
+
+{page === "home" ?
           <Grid item xs={12} md={6}>
             <Image
               src="/assets/hero.png"
@@ -179,7 +189,7 @@ const Hero: React.FC = () => {
               priority // Carga la imagen lo antes posible
               style={{ width: "100%", height: "auto" }}
             />
-          </Grid>
+          </Grid> : null }
 
          
         </Grid>

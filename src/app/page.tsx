@@ -12,32 +12,19 @@ import ServicesloveSection from "./sections/Services/ourServices/services";
 const Home: NextPage = () => {
   return (
     <>
-      <Navbar />
+      <Navbar page="home"  />
       <section id="hero">
-        <Hero />
+        <Hero page="home" />
       </section>
-
-      {/* <section id="services">
-        <ServicesSection />
-      </section> */}
-
-   <section id="services">
+      <section id="services">
         <ServicesloveSection />
       </section> 
-
-
       <section id="aboutus">
         <AboutUs />
       </section>
-
-    {/* <section id="">
-        
-      </section> */}
-
       <section id="contact">
         <ContactForm />
       </section>
-
       <Footer />
     </>
   );

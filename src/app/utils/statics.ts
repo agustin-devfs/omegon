@@ -34,7 +34,7 @@ export const statics = {
     },
     {
       item: "instagram",
-      link: "/",
+      link: "https://www.instagram.com/omegon.studio?igsh=MTY5ejQ1dDZwZnlzMg==",
     },
   ],
 
