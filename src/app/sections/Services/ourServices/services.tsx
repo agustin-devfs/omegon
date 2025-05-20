@@ -1,4 +1,6 @@
 // src/components/ServicesloveSection.tsx
+"use client"
+
 import React from "react";
 import { Box, Grid, Paper, Typography, useTheme } from "@mui/material";
 import { Code, Smartphone, LayoutDashboard } from "lucide-react";

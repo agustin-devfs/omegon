@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import type { NextPage } from "next";
 import Navbar from "@/app/components/Navbar/Navbar";
