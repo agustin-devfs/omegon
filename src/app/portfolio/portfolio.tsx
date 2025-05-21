@@ -33,7 +33,7 @@ export const projects: Project[] = [
     id: 2,
     title: "Ocho&5",
     description:
-      "Diseño minimalista combinado con una experiencia de usuario fluida para una marca gastronómica.",
+      "Diseño minimalista combinado con una experiencia de usuario fluida para una empresa de marketing.",
     imageUrl: "/assets/telefono.png",
     link: "https://cinco-y-ocho.vercel.app/",
   },

@@ -39,6 +39,16 @@ const Hero: React.FC<HeroProps> = ({ page }) => {
     }
   };
 
+  const highlightedWords = ["propósito", "precisión"];
+const parsedTitle = statics.COMPANY.TITLE.split(/(propósito|precisión)/gi).map(
+  (word, index) =>
+    highlightedWords.includes(word.toLowerCase()) ? (
+      <strong key={index}>{word}</strong>
+    ) : (
+      word
+    )
+);
+
   return (
     <Box
       component="section"
@@ -96,14 +106,8 @@ const Hero: React.FC<HeroProps> = ({ page }) => {
             fontFamily="Exo"
             sx={{ mb: 0, zIndex: 0, maxWidth: "100%" }}
           >
-            {statics.COMPANY.TITLE.split(/(propósito|precisión)/gi).map(
-              (word, index) =>
-                ["propósito", "precisión"].includes(word.toLowerCase()) ? (
-                  <strong key={index}>{word}</strong>
-                ) : (
-                  word
-                )
-            )}
+           <p>{parsedTitle}</p>
+
           </Typography>
 
           {page === "home" ? (
