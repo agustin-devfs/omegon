@@ -147,8 +147,8 @@ const Navbar: React.FC<NavbarProps> = ({ page }) => {
         >
           <Image
             src="/assets/logos/logo_claro.png"
-            width={50}
-            height={50}
+            width={64}
+            height={60}
             alt="Omegon"
             style={{ minHeight: 40, maxHeight: 55, maxWidth: 60 }}
           />
@@ -238,7 +238,7 @@ const Navbar: React.FC<NavbarProps> = ({ page }) => {
           >
             <Image
               src={"/assets/logos/logo_claro.png"}
-              width={60}
+              width={64}
               height={60}
               alt="Omegon"
             />
