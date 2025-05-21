@@ -1,25 +1,28 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Enable modern JS features
-  swcMinify: true,
   experimental: {
-    // Enables modern JS compilation
+    // Modern JS optimizations
+ /*    modularizeImports: {
+      '@mui/material': {
+        transform: '@mui/material/{{member}}',
+      },
+      '@mui/icons-material': {
+        transform: '@mui/icons-material/{{member}}',
+      }
+    } */
   },
-  modularizeImports: {
-    '@mui/material': {
-      transform: '@mui/material/{{member}}',
-    },
-    '@mui/icons-material': {
-      transform: '@mui/icons-material/{{member}}',
-    }
-  },
-  // Target modern browsers only
+  // Configure webpack with supported target
   webpack: (config, { dev, isServer }) => {
-    // Custom webpack config
     if (!dev && !isServer) {
-      // Enable modern JS features in production client bundles
-      config.target = 'esnext';
+      config.target = 'web';  // Using 'web' instead of 'esnext'
+      
+      // Optional: Add modern JavaScript optimizations
+      config.optimization = {
+        ...config.optimization,
+        moduleIds: 'deterministic',
+        minimize: true,
+      };
     }
     return config;
   }
