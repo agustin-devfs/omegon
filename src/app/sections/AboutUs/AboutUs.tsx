@@ -139,8 +139,8 @@ export default function AboutUs() {
                 </Box>
                 <CardContent>
                   <Typography
-                    variant="h6"
-                    sx={{
+/*                     variant="h6"
+ */                    sx={{
                       fontFamily: "Exo",
                       fontWeight: "bold",
                       mt: 2,

@@ -111,8 +111,8 @@ const Hero: React.FC<HeroProps> = ({ page }) => {
           <Grid item xs={12} md={6}>
             
             <Typography
-              variant="h3"
-              fontSize={{md:20, xs:18}}
+/*               variant="h3"
+ */              fontSize={{md:20, xs:18}}
               fontWeight={500}
               lineHeight={1.25}
               sx={{ fontFamily: "Exo", color: "#FFFFFF", mb: 4 }}
