@@ -46,3 +46,67 @@ export const content = {
     },
   ],
 };
+
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+  link: string;
+}
+
+export const projects: Project[] = [
+  {title: "proyectos", id: 0, description: "", imageUrl: "", link: ""},
+  {
+    id: 1,
+    title: "Yamila Velay",
+    description:
+      "Identidad visual espiritual y funcionalidad personalizada para una terapeuta holística.",
+    imageUrl: "/assets/projects/yami.svg",
+    link: "https://yamila-velay-landing.vercel.app/",
+  },
+  {
+    id: 2,
+    title: "Ocho&5",
+    description:
+      "Diseño minimalista combinado con una experiencia de usuario fluida para una empresa de marketing.",
+    imageUrl: "/assets/telefono.png",
+    link: "https://cinco-y-ocho.vercel.app/",
+  },
+  {
+    id: 3,
+    title: "Lead Magnet",
+    description:
+      "Proyecto con diseño simple fluido para empresa de IA & automation.",
+    imageUrl: "/assets/telefono.png",
+    link: "https://aiqwavelabscom.vercel.app/",
+  },
+];
+
+export const diseños: Project[] = [
+  {title: "diseños", id: 0, description: "", imageUrl: "", link: ""},
+  {
+    id: 1,
+    title: "Yamila Velay",
+    description:
+      "Identidad visual espiritual y funcionalidad personalizada para una terapeuta holística.",
+    imageUrl: "/assets/projects/yami.svg",
+    link: "https://yamila-velay-landing.vercel.app/",
+  },
+  {
+    id: 2,
+    title: "Ocho&5",
+    description:
+      "Diseño minimalista combinado con una experiencia de usuario fluida para una empresa de marketing.",
+    imageUrl: "/assets/telefono.png",
+    link: "https://cinco-y-ocho.vercel.app/",
+  },
+  {
+    id: 3,
+    title: "Lead Magnet",
+    description:
+      "Proyecto con diseño simple fluido para empresa de IA & automation.",
+    imageUrl: "/assets/telefono.png",
+    link: "https://aiqwavelabscom.vercel.app/",
+  },
+];

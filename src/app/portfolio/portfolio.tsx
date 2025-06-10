@@ -8,39 +8,15 @@ import {
 } from "@mui/material";
 import { ProjectCard } from "../components/Cards/cardService/Cardprojects";
 import { motion } from "framer-motion";
+import { Project } from "../utils/content";
 
 const darkBg = "#17261E";
 const accent = "#EDF252";
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  imageUrl: string;
-  link: string;
-}
 
-export const projects: Project[] = [
-  {
-    id: 1,
-    title: "Yamila Velay",
-    description:
-      "Identidad visual espiritual y funcionalidad personalizada para una terapeuta holística.",
-    imageUrl: "/assets/projects/yami.svg",
-    link: "https://yamila-velay-landing.vercel.app/",
-  },
-  {
-    id: 2,
-    title: "Ocho&5",
-    description:
-      "Diseño minimalista combinado con una experiencia de usuario fluida para una empresa de marketing.",
-    imageUrl: "/assets/telefono.png",
-    link: "https://cinco-y-ocho.vercel.app/",
-  },
-];
 
-const ProjectsSection: React.FC<{ projects?: Project[] }> = ({ projects: data = projects }) => {
-  return (
+const ProjectsSection: React.FC<{ projects?: Project[] }> = ({ projects }) => 
+  {  return (
     <Box
       component="section"
       id="projects"
@@ -71,7 +47,7 @@ const ProjectsSection: React.FC<{ projects?: Project[] }> = ({ projects: data = 
             >
               Nuestros{" "}
               <Box component="span" sx={{ color: accent }}>
-                proyectos
+                {projects && projects.length > 0 ? projects[0].title : ""}
               </Box>
             </Typography>
           </motion.div>
@@ -90,8 +66,10 @@ const ProjectsSection: React.FC<{ projects?: Project[] }> = ({ projects: data = 
         </Box>
 
         {/* Cards de proyectos */}
-        <Grid container spacing={6}>
-          {data.map((project, idx) => (
+       <Grid container spacing={6}>
+          {(projects ?? [])
+            .filter(project => project.id !== 0)
+            .map((project, idx) => (
             <Grid item xs={12} key={project.id}>
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
