@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import React from "react";
 import {
   Box,
@@ -12,18 +13,23 @@ import {
   Link,
 } from "@mui/material";
 import Image from "next/image";
-import ShaderCanvas from "@/app/sections/Hero/ShaderCanvas";
 import { statics } from "@/app/utils/statics";
 import { content } from "@/app/utils/content";
 import ButtonCub from "@/app/components/Buttons/Cub/buton";
-import { ServiceCardProps } from "@/app/components/Cards/cardService/CardService";
 import LordIcon from "@/app/components/iconos/LordIcon";
+import type { ServiceCardProps } from "@/app/components/Cards/cardService/CardService";
+
+// Carga el shader únicamente en cliente, evitando SSR
+const ShaderCanvas = dynamic(
+  () => import("@/app/sections/Hero/ShaderCanvas"),
+  { ssr: false, loading: () => null }
+);
 
 interface HeroProps {
   page: string;
 }
 
-const Hero: React.FC<HeroProps> = ({ page }) => {
+export default function Hero({ page }: HeroProps) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -33,21 +39,21 @@ const Hero: React.FC<HeroProps> = ({ page }) => {
   const textColorClaro = theme.palette.info.main;
 
   const scrollToContact = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
+    document
+      .getElementById("contact")
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   const highlightedWords = ["propósito", "precisión"];
-const parsedTitle = statics.COMPANY.TITLE.split(/(propósito|precisión)/gi).map(
-  (word, index) =>
+  const parsedTitle = statics.COMPANY.TITLE.split(
+    /(propósito|precisión)/gi
+  ).map((word, i) =>
     highlightedWords.includes(word.toLowerCase()) ? (
-      <strong key={index}>{word}</strong>
+      <strong key={i}>{word}</strong>
     ) : (
       word
     )
-);
+  );
 
   return (
     <Box
@@ -62,7 +68,7 @@ const parsedTitle = statics.COMPANY.TITLE.split(/(propósito|precisión)/gi).map
         alignItems: "center",
       }}
     >
-      {/* Fondo con ShaderCanvas */}
+      {/* Fondo con Shader (cliente) */}
       <Box
         sx={{
           position: "absolute",
@@ -87,102 +93,98 @@ const parsedTitle = statics.COMPANY.TITLE.split(/(propósito|precisión)/gi).map
         }}
       >
         <Grid container spacing={1} alignItems="center">
-          {/* Encabezado principal */}
-          <Typography
-            variant="h1"
-            component="h1"
-            fontSize={{ md: 30, xs: 30 }}
-            fontWeight={600}
-            fontFamily="Exo"
-            sx={{ fontFamily: "Exo", color: textColorClaro, mb: 1 }}
-          >
-            {statics.COMPANY.NAME}
-          </Typography>
-          <Typography
-            variant="h2"
-            component="h2"
-            fontSize={{ md: 80, xs: 50 }}
-            fontWeight={300}
-            fontFamily="Exo"
-            sx={{ mb: 0, zIndex: 0, maxWidth: "100%" }}
-          >
-           <p>{parsedTitle}</p>
+          {/* Texto y botones */}
+          <Grid item xs={12} md={6}>
+            <Typography
+              variant="h1"
+              component="h1"
+              fontSize={{ md: 30, xs: 30 }}
+              fontWeight={600}
+              fontFamily="Exo"
+              sx={{ color: textColorClaro, mb: 1 }}
+            >
+              {statics.COMPANY.NAME}
+            </Typography>
+            <Typography
+              variant="h2"
+              component="h2"
+              fontSize={{ md: 80, xs: 50 }}
+              fontWeight={300}
+              fontFamily="Exo"
+              sx={{ mb: 0, maxWidth: "100%" }}
+            >
+              {parsedTitle}
+            </Typography>
 
-          </Typography>
+            {page === "home" && (
+              <>
+                <Typography
+                  variant="h3"
+                  fontSize={{ md: 20, xs: 18 }}
+                  fontWeight={500}
+                  lineHeight={1.25}
+                  sx={{ color: "#FFFFFF", mb: 4 }}
+                >
+                  {statics.COMPANY.TEXT}
+                </Typography>
 
-          {page === "home" ? (
-            <Grid item xs={12} md={6}>
-              <Typography
-                variant="h3"
-                fontSize={{ md: 20, xs: 18 }}
-                fontWeight={500}
-                lineHeight={1.25}
-                sx={{ fontFamily: "Exo", color: "#FFFFFF", mb: 4 }}
-              >
-                {statics.COMPANY.TEXT}
-              </Typography>
-
-              <Stack
-                direction={isSmallScreen ? "column" : "row"}
-                spacing={isSmallScreen ? 1 : isMediumScreen ? 3 : 4}
-                marginBottom={{ md: 10, xs: 2 }}
-                sx={{
-                  flexDirection: { xs: "column", sm: "row", md: "row" },
-                  alignItems: { xs: "center", sm: "center", md: "center" },
-                }}
-              >
-                {content.cards.map((n: ServiceCardProps, index: number) => (
-                  <Link
-                    key={index}
-                    href={n.linkNav}
-                    underline="none"
-                    style={{
-                      color: textColor,
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 0.5,
-                      maxWidth: "100%",
-                    }}
-                  >
-                    <LordIcon
-                      src={n.iconSrc}
-                      trigger="in"
-                      delay="300"
-                      state="in-reveal"
-                      colors="primary:#e4e4e4,secondary:#7abf5a"
-                      style={{ width: "90px", height: "90px" }}
-                    />
-                    <Typography
+                <Stack
+                  direction={isSmallScreen ? "column" : "row"}
+                  spacing={isSmallScreen ? 1 : isMediumScreen ? 3 : 4}
+                  mb={{ md: 10, xs: 2 }}
+                  sx={{ alignItems: "center" }}
+                >
+                  {content.cards.map((n: ServiceCardProps, idx) => (
+                    <Link
+                      key={idx}
+                      href={n.linkNav}
+                      underline="none"
                       sx={{
-                        fontFamily: "Exo",
-                        fontWeight: 600,
-                        fontSize: { xs: "12px", md: "19px" },
-                        lineHeight: { xs: "16px", md: "25px" },
-                        letterSpacing: "1%",
-                        color: textColorClaro,
-                        maxWidth: "100%",
+                        color: textColor,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 0.5,
                       }}
-                      noWrap={false}
                     >
-                      {n.title}
-                    </Typography>
-                  </Link>
-                ))}
-              </Stack>
+                      <LordIcon
+                        src={n.iconSrc}
+                        trigger="in"
+                        delay="300"
+                        state="in-reveal"
+                        colors="primary:#e4e4e4,secondary:#7abf5a"
+                        style={{ width: "90px", height: "90px" }}
+                      />
+                      <Typography
+                        sx={{
+                          fontFamily: "Exo",
+                          fontWeight: 600,
+                          fontSize: { xs: "12px", md: "19px" },
+                          lineHeight: { xs: "16px", md: "25px" },
+                          letterSpacing: "1%",
+                          color: textColorClaro,
+                        }}
+                      >
+                        {n.title}
+                      </Typography>
+                    </Link>
+                  ))}
+                </Stack>
 
-              <Box onClick={scrollToContact} mt={0.5} textAlign="center">
-                <ButtonCub
-                  text={statics.COMPANY.BUTTON.NAME}
-                  hovered={statics.COMPANY.BUTTON.NAME}
-                  color_primary={textColorClaro}
-                  color_secondary={Background}
-                  size="3rem 8rem"
-                />
-              </Box>
-            </Grid>
-          ) : null}
+                <Box onClick={scrollToContact} textAlign="center">
+                  <ButtonCub
+                    text={statics.COMPANY.BUTTON.NAME}
+                    hovered={statics.COMPANY.BUTTON.NAME}
+                    color_primary={textColorClaro}
+                    color_secondary={Background}
+                    size="3rem 8rem"
+                  />
+                </Box>
+              </>
+            )}
+          </Grid>
 
-          {page === "home" || !isSmallScreen ? (
+          {/* Imagen hero */}
+          {(page === "home" || !isSmallScreen) && (
             <Grid item xs={12} md={6}>
               <Image
                 src="/assets/hero.png"
@@ -190,16 +192,13 @@ const parsedTitle = statics.COMPANY.TITLE.split(/(propósito|precisión)/gi).map
                 width={600}
                 height={600}
                 quality={80}
-                priority={false} // Cambiado a false para no bloquear el renderizado
-                loading="lazy" // Carga diferida
+                loading="lazy"
                 style={{ width: "100%", height: "auto" }}
               />
             </Grid>
-          ) : null}
+          )}
         </Grid>
       </Container>
     </Box>
   );
-};
-
-export default Hero;
+}
