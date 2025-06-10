@@ -9,9 +9,10 @@ import { Exo } from "next/font/google";
 import "./globals.css";
 import theme from "@/app/theme/index";
 
+// Reducir variantes de la fuente Exo para optimizar carga
 const exo = Exo({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
+  weight: ["400", "700"], // Solo los pesos necesarios
+  style: ["normal"], // Solo el estilo necesario
   subsets: ["latin"],
   variable: "--font-exo-sans",
 });
@@ -22,23 +23,22 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   useEffect(() => {
-    const loadCalendly = () => {
-      const script = document.createElement("script");
-      script.src = "https://assets.calendly.com/assets/external/widget.js";
-      script.async = true;
-      document.body.appendChild(script);
+    const loadScript = (src: string, condition: boolean) => {
+      if (condition) {
+        const script = document.createElement("script");
+        script.src = src;
+        script.async = true;
+        document.body.appendChild(script);
+      }
     };
 
-    const loadLordicon = () => {
-      const script = document.createElement("script");
-      script.src = "https://cdn.lordicon.com/bhenfmcm.js";
-      script.async = true;
-      document.body.appendChild(script);
-    };
+    // Cargar Calendly solo si hay un elemento relacionado
+    const calendlyElement = document.querySelector(".calendly-widget");
+    loadScript("https://assets.calendly.com/assets/external/widget.js", !!calendlyElement);
 
-    // Cargar scripts solo cuando sean necesarios
-    loadCalendly();
-    loadLordicon();
+    // Cargar Lordicon solo si hay un elemento relacionado
+    const lordiconElement = document.querySelector(".lordicon-widget");
+    loadScript("https://cdn.lordicon.com/bhenfmcm.js", !!lordiconElement);
   }, []);
 
   return (
@@ -48,11 +48,20 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>OMEGON</title>
 
+        {/* Optimización de preconexión */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&display=swap"
+          media="print"
+          onLoad={(e) => {
+            (e.currentTarget as HTMLLinkElement).media = "all";
+          }}
         />
 
         <meta
@@ -90,9 +99,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0MMCPMXS8G"
-          strategy="lazyOnload"
+          strategy="afterInteractive" // Cambiado a afterInteractive para optimizar carga
         />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
