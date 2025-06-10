@@ -182,7 +182,7 @@ const parsedTitle = statics.COMPANY.TITLE.split(/(propósito|precisión)/gi).map
             </Grid>
           ) : null}
 
-          {page === "home" ? (
+          {page === "home" || !isSmallScreen ? (
             <Grid item xs={12} md={6}>
               <Image
                 src="/assets/hero.png"
