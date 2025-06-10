@@ -1,100 +1,52 @@
-"use client";
 
-import { ReactNode } from "react";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import Script from "next/script";
-import { Exo } from "next/font/google";
-
-import "./globals.css";
-import theme from "@/app/theme/index";
+import './globals.css';
+import { Exo } from 'next/font/google';
+import Providers from './providers';
 
 const exo = Exo({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-exo-sans",
+  weight: [
+    '100','200','300','400','500','600','700','800','900'
+  ],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  variable: '--font-exo-sans',
+  display: 'swap'
 });
 
-interface RootLayoutProps {
-  children: ReactNode;
-}
+export const metadata = {
+  title: 'OMEGON',
+  description: 'Diseñamos con propósito, desarrollamos con precisión.',
+  viewport: 'width=device-width, initial-scale=1.0',
+  keywords: [
+    'Tecnología','UX/UI','Desarrollo Web','Software','IA','Transformación Digital'
+  ],
+  openGraph: {
+    title: 'OMEGON',
+    description: 'Diseñamos con propósito, desarrollamos con precisión.',
+    url: 'https://omegon.com.ar',
+    siteName: 'OMEGON',
+    images: [
+      {
+        url: 'https://omegon.com.ar/assets/logos/logo_omegon.jpg',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'OMEGON',
+    description: 'Diseñamos con propósito, desarrollamos con precisión.',
+    images: ['https://omegon.com.ar/assets/logos/logo_omegon.jpg'],
+  },
+};
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>OMEGON</title>
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-
-        <meta
-          name="description"
-          content="Diseñamos con propósito, desarrollamos con precisión."
-        />
-        <meta
-          name="keywords"
-          content="Tecnología, UX/UI, Desarrollo Web, Software, IA, Transformación Digital"
-        />
-
-        <meta property="og:title" content="OMEGON" />
-        <meta
-          property="og:description"
-          content="Diseñamos con propósito, desarrollamos con precisión."
-        />
-        <meta
-          property="og:image"
-          content="https://omegon.com.ar/assets/logos/logo_omegon.jpg"
-        />
-        <meta property="og:url" content="https://omegon.com.ar" />
-        <meta property="og:type" content="website" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="OMEGON" />
-        <meta
-          name="twitter:description"
-          content="Diseñamos con propósito, desarrollamos con precisión."
-        />
-        <meta
-          name="twitter:image"
-          content="https://omegon.com.ar/assets/logos/logo_omegon.jpg"
-        />
-
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-0MMCPMXS8G"
-          strategy="lazyOnload"        />
-          <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-0MMCPMXS8G');
-          `}
-        </Script>
-
-        {/* Scripts adicionales */}
-        <Script
-          src="https://cdn.lordicon.com/bhenfmcm.js"
-          strategy="lazyOnload"
-        />
-        <Script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="lazyOnload"
-        />
-      </head>
-      <body className={exo.variable}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
+    <html lang="es" className={exo.variable}>
+      <body>
+        <Providers>
           {children}
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
