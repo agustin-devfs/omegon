@@ -139,8 +139,8 @@ const ContactSection: React.FC = () => {
                   src="/assets/logos/logo_claro.png"
                   alt="LogoIcon"
                   loading="lazy"
-                  width={isSmallScreen ? 120 : 250}
-                  height={isSmallScreen ? 120 : 250}
+                  width={isSmallScreen ? 120 : 256}
+                  height={isSmallScreen ? 120 : 241}
                   quality={80}
                   style={{ borderRadius: "10%" }}
                 />
