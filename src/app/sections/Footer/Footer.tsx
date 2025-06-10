@@ -50,6 +50,7 @@ export default function Footer() {
               loading="lazy"
               width={isSmallScreen ? 50 : 55}
               height={isSmallScreen ? 45 : 50}
+              quality={80}
               style={{ borderRadius: "10%" }}
             />
           </Link>

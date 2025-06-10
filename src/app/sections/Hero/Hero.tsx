@@ -189,6 +189,7 @@ const parsedTitle = statics.COMPANY.TITLE.split(/(propósito|precisión)/gi).map
                 alt="Imagen hero"
                 width={600}
                 height={600}
+                quality={80}
                 priority={false} // Cambiado a false para no bloquear el renderizado
                 loading="lazy" // Carga diferida
                 style={{ width: "100%", height: "auto" }}

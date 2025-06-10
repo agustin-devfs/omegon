@@ -65,6 +65,8 @@ const CardService: FC<ServiceCardProps> = ({title, description, imageSrc, imageA
             alt={imageAlt}
             width={500}
             height={500}
+            quality={80}
+
             style={{
               //objectFit: "cover",
               width: "100%",

@@ -30,12 +30,15 @@
     "yup": "^1.6.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-google-recaptcha": "^2.1.9",
     "@types/three": "^0.173.0",
+    "core-js": "^3.43.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
     "postcss": "^8",
@@ -45,8 +48,10 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
+      "defaults and supports es6-module",
+      "> 0.5%",
       "not dead",
+      "not IE 11",
       "not op_mini all"
     ],
     "development": [

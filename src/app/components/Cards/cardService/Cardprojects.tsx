@@ -62,6 +62,8 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                 alt={project.title}
                 height={200}
                 width={200}
+                quality={80}
+
               />
             </Box>
           </Grid>
@@ -88,6 +90,7 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             </Typography>
 
             <Button
+              aria-label="Ver proyecto"
               href={project.link}
               variant="outlined"
               endIcon={<ArrowRight />}

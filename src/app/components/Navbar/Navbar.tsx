@@ -149,6 +149,8 @@ const Navbar: React.FC<NavbarProps> = ({ page }) => {
             src="/assets/logos/logo_claro.png"
             width={64}
             height={60}
+            quality={80}
+
             alt="Omegon"
             style={{ minHeight: 40, maxHeight: 55, maxWidth: 60 }}
           />
@@ -240,6 +242,8 @@ const Navbar: React.FC<NavbarProps> = ({ page }) => {
               src={"/assets/logos/logo_claro.png"}
               width={64}
               height={60}
+              quality={80}
+
               alt="Omegon"
             />
           </Box>

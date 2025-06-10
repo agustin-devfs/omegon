@@ -141,6 +141,7 @@ const ContactSection: React.FC = () => {
                   loading="lazy"
                   width={isSmallScreen ? 120 : 250}
                   height={isSmallScreen ? 120 : 250}
+                  quality={80}
                   style={{ borderRadius: "10%" }}
                 />
                 <Typography
