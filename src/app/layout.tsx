@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useEffect } from "react";
+import { ReactNode } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Script from "next/script";
@@ -9,10 +9,9 @@ import { Exo } from "next/font/google";
 import "./globals.css";
 import theme from "@/app/theme/index";
 
-// Reducir variantes de la fuente Exo para optimizar carga
 const exo = Exo({
-  weight: ["400", "700"], // Solo los pesos necesarios
-  style: ["normal"], // Solo el estilo necesario
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-exo-sans",
 });
@@ -22,25 +21,6 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  useEffect(() => {
-    const loadScript = (src: string, condition: boolean) => {
-      if (condition) {
-        const script = document.createElement("script");
-        script.src = src;
-        script.async = true;
-        document.body.appendChild(script);
-      }
-    };
-
-    // Cargar Calendly solo si hay un elemento relacionado
-    const calendlyElement = document.querySelector(".calendly-widget");
-    loadScript("https://assets.calendly.com/assets/external/widget.js", !!calendlyElement);
-
-    // Cargar Lordicon solo si hay un elemento relacionado
-    const lordiconElement = document.querySelector(".lordicon-widget");
-    loadScript("https://cdn.lordicon.com/bhenfmcm.js", !!lordiconElement);
-  }, []);
-
   return (
     <html lang="es">
       <head>
@@ -48,20 +28,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>OMEGON</title>
 
-        {/* Optimización de preconexión */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Exo:wght@400;700&display=swap"
-          media="print"
-          onLoad={(e) => {
-            (e.currentTarget as HTMLLinkElement).media = "all";
-          }}
         />
 
         <meta
@@ -99,16 +70,25 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0MMCPMXS8G"
-          strategy="afterInteractive" // Cambiado a afterInteractive para optimizar carga
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
+          strategy="lazyOnload"        />
+          <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-0MMCPMXS8G', { 'anonymize_ip': true });
+            gtag('config', 'G-0MMCPMXS8G');
           `}
         </Script>
+
+        {/* Scripts adicionales */}
+        <Script
+          src="https://cdn.lordicon.com/bhenfmcm.js"
+          strategy="lazyOnload"
+        />
+        <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="lazyOnload"
+        />
       </head>
       <body className={exo.variable}>
         <ThemeProvider theme={theme}>
