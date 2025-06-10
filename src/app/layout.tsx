@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Script from "next/script";
@@ -21,6 +21,26 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
+  useEffect(() => {
+    const loadCalendly = () => {
+      const script = document.createElement("script");
+      script.src = "https://assets.calendly.com/assets/external/widget.js";
+      script.async = true;
+      document.body.appendChild(script);
+    };
+
+    const loadLordicon = () => {
+      const script = document.createElement("script");
+      script.src = "https://cdn.lordicon.com/bhenfmcm.js";
+      script.async = true;
+      document.body.appendChild(script);
+    };
+
+    // Cargar scripts solo cuando sean necesarios
+    loadCalendly();
+    loadLordicon();
+  }, []);
+
   return (
     <html lang="es">
       <head>
@@ -70,25 +90,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0MMCPMXS8G"
-          strategy="lazyOnload"        />
-          <Script id="google-analytics" strategy="lazyOnload">
+          strategy="lazyOnload"
+        />
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-0MMCPMXS8G');
+            gtag('config', 'G-0MMCPMXS8G', { 'anonymize_ip': true });
           `}
         </Script>
-
-        {/* Scripts adicionales */}
-        <Script
-          src="https://cdn.lordicon.com/bhenfmcm.js"
-          strategy="afterInteractive"
-        />
-        <Script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="lazyOnload"
-        />
       </head>
       <body className={exo.variable}>
         <ThemeProvider theme={theme}>
