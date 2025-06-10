@@ -1,11 +1,9 @@
-import {  FC } from "react";
-import {
-  Card,
-  Box,
-  CardContent,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { FC } from "react";
+import Card from "@mui/material/Card";
+import Box from "@mui/material/Box";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
 import Image from "next/image";
 
 export interface ServiceCardProps {

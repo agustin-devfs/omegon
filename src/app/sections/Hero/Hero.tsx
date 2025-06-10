@@ -2,16 +2,14 @@
 
 import dynamic from "next/dynamic";
 import React from "react";
-import {
-  Box,
-  Typography,
-  Container,
-  Grid,
-  useTheme,
-  Stack,
-  useMediaQuery,
-  Link,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Link from "@mui/material/Link";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/image";
 import { statics } from "@/app/utils/statics";
 import { content } from "@/app/utils/content";

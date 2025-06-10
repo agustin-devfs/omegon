@@ -1,8 +1,10 @@
 import React from "react";
-import { Backdrop, IconButton, useMediaQuery } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import { AnimatePresence, motion } from "framer-motion";
+import Backdrop from "@mui/material/Backdrop";
+import IconButton from "@mui/material/IconButton";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import CloseIcon from "@mui/icons-material/Close";
+import { motion, AnimatePresence } from "framer-motion";
 import { InlineWidget } from "react-calendly";
 
 export default function CalendlyModal({

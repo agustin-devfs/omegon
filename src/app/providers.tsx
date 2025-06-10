@@ -22,8 +22,9 @@ export default function Providers({ children }: ProvidersProps) {
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-0MMCPMXS8G"
         strategy="lazyOnload"
+        defer
       />
-      <Script id="google-analytics" strategy="lazyOnload">
+      <Script id="google-analytics" strategy="lazyOnload" defer>
         {`window.dataLayer = window.dataLayer || [];
          function gtag(){dataLayer.push(arguments);}  
          gtag('js', new Date());
@@ -34,10 +35,12 @@ export default function Providers({ children }: ProvidersProps) {
       <Script
         src="https://cdn.lordicon.com/bhenfmcm.js"
         strategy="lazyOnload"
+        defer
       />
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
         strategy="lazyOnload"
+        defer
       />
     </>
   );
